@@ -1,2 +1,5 @@
+SubViewport
+SubViewportContainer
+Control
 MeshInstance3D
 CharacterBody3D
