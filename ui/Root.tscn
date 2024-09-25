@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lph1o4dijnjc"]
 
 [ext_resource type="PackedScene" uid="uid://0vaulqv8w0g0" path="res://world.tscn" id="1_7vjgo"]
-[ext_resource type="Texture2D" uid="uid://birwueyil8rr4" path="res://icon.svg" id="2_boqoj"]
+[ext_resource type="Script" path="res://ui/panel.gd" id="2_1hi13"]
 
 [sub_resource type="SystemFont" id="SystemFont_t0cyh"]
 
@@ -11,37 +11,94 @@ anchors_preset = 0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 271.0
+offset_top = 31.0
+offset_right = 871.0
+offset_bottom = 431.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
+size = Vector2i(600, 400)
 render_target_update_mode = 4
 
 [node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_7vjgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.306478, 0)
 
 [node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(835, 143)
-scale = Vector2(4.42969, 1.34375)
-texture = ExtResource("2_boqoj")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(839, 333)
-scale = Vector2(4.42969, 1.34375)
-texture = ExtResource("2_boqoj")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(836, 516)
-scale = Vector2(4.42969, 1.34375)
-texture = ExtResource("2_boqoj")
-
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 540.0
-offset_right = 351.0
-offset_bottom = 615.0
+offset_left = 272.0
+offset_top = 448.0
+offset_right = 874.0
+offset_bottom = 623.0
 theme_override_fonts/font = SubResource("SystemFont_t0cyh")
-text = "PORRA"
+text = "[PORRA@FODA ~]$"
+
+[node name="memory" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 35.0
+offset_right = 241.0
+offset_bottom = 386.0
+
+[node name="Panel" type="Panel" parent="memory"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 51.0
+offset_right = 170.0
+offset_bottom = 73.0
+script = ExtResource("2_1hi13")
+
+[node name="Panel3" type="Panel" parent="memory"]
+offset_left = 17.0
+offset_top = 116.0
+offset_right = 170.0
+offset_bottom = 138.0
+script = ExtResource("2_1hi13")
+
+[node name="Panel2" type="Panel" parent="memory"]
+offset_left = 18.0
+offset_top = 84.0
+offset_right = 171.0
+offset_bottom = 106.0
+script = ExtResource("2_1hi13")
+
+[node name="Panel4" type="Panel" parent="memory"]
+offset_left = 18.0
+offset_top = 151.0
+offset_right = 171.0
+offset_bottom = 173.0
+script = ExtResource("2_1hi13")
+
+[node name="TextEdit" type="TextEdit" parent="memory"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = 162.0
+offset_bottom = 43.0
+text = "Memoria
+"
+editable = false
+use_default_word_separators = false
+
+[node name="directoryTree" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 422.0
+offset_right = 245.0
+offset_bottom = 619.0
+
+[node name="Flags" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 33.0
+offset_right = 1128.0
+offset_bottom = 445.0
+
+[node name="Objetivo" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 895.0
+offset_top = 462.0
+offset_right = 1122.0
+offset_bottom = 620.0
