@@ -783,16 +783,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wgpqd")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
-offset_left = 271.0
-offset_top = 31.0
-offset_right = 871.0
-offset_bottom = 431.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 510.0
+offset_bottom = 385.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-scaling_3d_scale = 0.3
 canvas_item_default_texture_filter = 0
-size = Vector2i(600, 400)
+size = Vector2i(640, 480)
 render_target_update_mode = 4
 
 [node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_7vjgo")]
@@ -802,10 +801,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.306478, 0)
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 448.0
-offset_right = 874.0
-offset_bottom = 623.0
+offset_left = 661.0
+offset_top = 49.0
+offset_right = 1143.0
+offset_bottom = 641.0
 theme_override_fonts/font = ExtResource("2_s7vlu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u6y5y")
 theme_override_styles/focus = SubResource("StyleBoxFlat_22kgp")
@@ -813,10 +812,10 @@ text = "[user@system ~]$"
 
 [node name="memory" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 33.0
-offset_right = 240.0
-offset_bottom = 249.0
+offset_left = 10.0
+offset_top = 499.0
+offset_right = 649.0
+offset_bottom = 636.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8j7o6")
 
 [node name="Memoria" type="Label" parent="memory"]
@@ -918,19 +917,21 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7u43s")
 script = ExtResource("2_1hi13")
 
 [node name="directoryTree" type="Panel" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 26.0
-offset_top = 273.0
-offset_right = 245.0
-offset_bottom = 619.0
+offset_left = 755.0
+offset_top = 112.0
+offset_right = 974.0
+offset_bottom = 458.0
 
 [node name="Flags" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(200, 400)
 layout_mode = 0
-offset_left = 893.0
-offset_top = 31.0
-offset_right = 1128.0
-offset_bottom = 431.0
+offset_left = 616.0
+offset_top = 65.0
+offset_right = 851.0
+offset_bottom = 465.0
 tooltip_text = "flags
 "
 theme_override_styles/panel = SubResource("StyleBoxFlat_kuhjd")
@@ -960,9 +961,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Objetivo" type="Panel" parent="."]
+visible = false
 modulate = Color(1, 1, 0.952941, 1)
 layout_mode = 0
-offset_left = 895.0
-offset_top = 462.0
-offset_right = 1127.0
-offset_bottom = 620.0
+offset_left = 759.0
+offset_top = 275.0
+offset_right = 991.0
+offset_bottom = 433.0
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 452.0
+offset_right = 644.0
+offset_bottom = 488.0
+text = "script 1, 2, 3, 4, 5, 6"
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 7.0
+offset_right = 1139.0
+offset_bottom = 43.0
+text = "abas para man, terminal, diretorios descobertos e objetivo"
