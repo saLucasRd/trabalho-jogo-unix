@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://lph1o4dijnjc"]
+[gd_scene load_steps=5 format=3 uid="uid://lph1o4dijnjc"]
 
 [ext_resource type="PackedScene" uid="uid://0vaulqv8w0g0" path="res://world.tscn" id="1_7vjgo"]
+[ext_resource type="Script" path="res://ui/root.gd" id="1_jgiyb"]
+[ext_resource type="Script" path="res://ui/terminal.gd" id="2_n7ovp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgpqd"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_jgiyb")
 
 [node name="background" type="Panel" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -154,6 +157,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+context_menu_enabled = false
+script = ExtResource("2_n7ovp")
 
 [node name="Watch" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Control"]
 visible = false

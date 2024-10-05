@@ -1,48 +1,48 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
+var on_fps_view = false
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
 func _ready():
-	pass
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# Start with the mouse visible
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			on_fps_view = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Capture the mouse
+
+		elif event.button_index == MOUSE_BUTTON_RIGHT and not event.pressed:
+			on_fps_view = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Restore mouse visibility
+
+	# Handle mouse movement for FPS view
+	if event is InputEventMouseMotion and on_fps_view:
+		# Rotate the head and camera based on mouse movement
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-		# odeio cameras que nao rotacionam 90 grau
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+		# Clamp the camera's x rotation to prevent flipping over
+		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# provavelmente nao vai ser necessario pulos no jogo
-	
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-	#	velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# Calculate movement direction based on input
 	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	var direction = (head.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	# Only move if FPS view is active
+	if direction != Vector3.ZERO and on_fps_view:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
 
+	# Move the character
 	move_and_slide()
