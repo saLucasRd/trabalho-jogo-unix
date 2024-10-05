@@ -49,43 +49,126 @@ layout_mode = 2
 [node name="Esquerda" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Esquerda"]
+[node name="DaemonView" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Esquerda"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Esquerda/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Esquerda/DaemonView"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="World" parent="MarginContainer/HBoxContainer/Esquerda/SubViewportContainer/SubViewport" instance=ExtResource("1_7vjgo")]
+[node name="World" parent="MarginContainer/HBoxContainer/Esquerda/DaemonView/SubViewport" instance=ExtResource("1_7vjgo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.306478, 0)
 
-[node name="Camera2D" type="Camera2D" parent="MarginContainer/HBoxContainer/Esquerda/SubViewportContainer/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="MarginContainer/HBoxContainer/Esquerda/DaemonView/SubViewport"]
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/Esquerda"]
+[node name="Binds" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Esquerda"]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="Button7" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="Button5" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+
+[node name="Button6" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+
+[node name="Button8" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+
+[node name="Button9" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+
+[node name="Button10" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="Memoria" type="ProgressBar" parent="MarginContainer/HBoxContainer/Esquerda"]
+layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Direita" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Direita"]
+[node name="Abas" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Direita"]
 layout_mode = 2
-alignment = 1
 
-[node name="AbaTerminal" type="Button" parent="MarginContainer/HBoxContainer/Direita/HBoxContainer"]
+[node name="AbaTerminal" type="Button" parent="MarginContainer/HBoxContainer/Direita/Abas"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Terminal"
 
-[node name="AbaWatch" type="Button" parent="MarginContainer/HBoxContainer/Direita/HBoxContainer"]
+[node name="AbaWatch" type="Button" parent="MarginContainer/HBoxContainer/Direita/Abas"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Watch"
 
-[node name="AbaContrato" type="Button" parent="MarginContainer/HBoxContainer/Direita/HBoxContainer"]
+[node name="AbaContrato" type="Button" parent="MarginContainer/HBoxContainer/Direita/Abas"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Contrato"
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/Direita"]
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Direita"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Terminal" type="TextEdit" parent="MarginContainer/HBoxContainer/Direita/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Watch" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Contrato" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
