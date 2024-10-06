@@ -203,13 +203,11 @@ split_offset = 250
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_s8a7o")
+editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
-selecting_enabled = false
-drag_and_drop_selection_enabled = false
 wrap_mode = 1
 autowrap_mode = 1
-caret_type = 1
 script = ExtResource("2_n7ovp")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Direita/Abas/AbaTerminal" to="MarginContainer/HBoxContainer/Direita/Janelas" method="_on_aba_terminal_pressed"]

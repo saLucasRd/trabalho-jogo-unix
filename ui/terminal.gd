@@ -8,7 +8,7 @@ func _ready():
 	print_prompt()
 
 func _input(event):
-	if event is InputEventKey and event.pressed:  # Ensure the event is a key event
+	if event is InputEventKey and event.pressed and !Global.on_fps_view:  # Ensure the event is a key event
 		match event.keycode:
 			KEY_ENTER:
 				execute_command(command_buffer)
