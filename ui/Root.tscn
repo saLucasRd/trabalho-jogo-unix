@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://lph1o4dijnjc"]
+[gd_scene load_steps=10 format=3 uid="uid://lph1o4dijnjc"]
 
 [ext_resource type="PackedScene" uid="uid://0vaulqv8w0g0" path="res://world/world.tscn" id="1_7vjgo"]
+[ext_resource type="Script" path="res://ui/root.gd" id="1_xhwex"]
 [ext_resource type="PackedScene" uid="uid://2w2uve1pkgr3" path="res://ui/music_player.tscn" id="2_4fnlc"]
 [ext_resource type="Script" path="res://ui/janelas.gd" id="2_5s5sq"]
 [ext_resource type="Script" path="res://ui/terminal.gd" id="2_n7ovp"]
@@ -25,6 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_xhwex")
 
 [node name="background" type="Panel" parent="."]
 layout_mode = 1
@@ -54,6 +56,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="DaemonView" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Esquerda"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Esquerda/DaemonView"]
@@ -201,6 +204,12 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_s8a7o")
 context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+autowrap_mode = 1
+caret_type = 1
 script = ExtResource("2_n7ovp")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Direita/Abas/AbaTerminal" to="MarginContainer/HBoxContainer/Direita/Janelas" method="_on_aba_terminal_pressed"]

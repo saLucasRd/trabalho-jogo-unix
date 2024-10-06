@@ -7,24 +7,15 @@ const SENSITIVITY = 0.003
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
-var on_fps_view = false
+
 
 func _ready():
 	# Start with the mouse visible
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _input(event):
-	if event is InputEventMouseButton:
-		
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			on_fps_view = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Capture the mouse
-
-		elif event.button_index == MOUSE_BUTTON_RIGHT and not event.pressed:
-			on_fps_view = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Restore mouse visibility
 	# Handle mouse movement for FPS view
-	if event is InputEventMouseMotion and on_fps_view:
+	if event is InputEventMouseMotion and Global.on_fps_view:
 		# Rotate the head and camera based on mouse movement
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -38,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	var direction = (head.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	# Only move if FPS view is active
-	if direction != Vector3.ZERO and on_fps_view:
+	if direction != Vector3.ZERO and Global.on_fps_view:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
