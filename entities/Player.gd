@@ -15,6 +15,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
+		
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			on_fps_view = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Capture the mouse

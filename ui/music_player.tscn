@@ -33,7 +33,6 @@ layout_mode = 2
 max_value = 10.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer"]
-volume_db = -20.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -78,7 +77,6 @@ size_flags_vertical = 1
 min_value = -10.0
 max_value = 10.0
 step = 0.1
-value = 5.0
 
 [connection signal="finished" from="VBoxContainer/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]

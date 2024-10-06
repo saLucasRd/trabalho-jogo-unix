@@ -167,19 +167,8 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_5s5sq")
 
-[node name="Terminal" type="TextEdit" parent="MarginContainer/HBoxContainer/Direita/Janelas"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_s8a7o")
-context_menu_enabled = false
-script = ExtResource("2_n7ovp")
-
 [node name="Watch" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Janelas"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,6 +178,7 @@ grow_vertical = 2
 script = ExtResource("4_dm740")
 
 [node name="Contrato" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Janelas"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,6 +186,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_3gci2")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HBoxContainer/Direita/Janelas"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 250
+
+[node name="Terminal" type="TextEdit" parent="MarginContainer/HBoxContainer/Direita/Janelas/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
+context_menu_enabled = false
+script = ExtResource("2_n7ovp")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Direita/Abas/AbaTerminal" to="MarginContainer/HBoxContainer/Direita/Janelas" method="_on_aba_terminal_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Direita/Abas/AbaWatch" to="MarginContainer/HBoxContainer/Direita/Janelas" method="_on_aba_watch_pressed"]

@@ -1,8 +1,8 @@
 extends Control
 
-@onready var terminal: TextEdit = $Terminal
 @onready var watch: RichTextLabel = $Watch
 @onready var contrato: RichTextLabel = $Contrato
+@onready var terminal: VSplitContainer = $VSplitContainer
 
 func _on_aba_terminal_pressed() -> void:
 	terminal.visible = true
