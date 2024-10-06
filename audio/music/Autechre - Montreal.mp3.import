@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm8q2g1bvk7uh"
+path="res://.godot/imported/Autechre - Montreal.mp3-fe84fcc7eed256640bbe707c7e1962c6.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Autechre - Montreal.mp3"
+dest_files=["res://.godot/imported/Autechre - Montreal.mp3-fe84fcc7eed256640bbe707c7e1962c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

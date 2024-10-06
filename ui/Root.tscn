@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://lph1o4dijnjc"]
+[gd_scene load_steps=9 format=3 uid="uid://lph1o4dijnjc"]
 
-[ext_resource type="PackedScene" uid="uid://0vaulqv8w0g0" path="res://world.tscn" id="1_7vjgo"]
-[ext_resource type="Script" path="res://ui/root.gd" id="1_jgiyb"]
+[ext_resource type="PackedScene" uid="uid://0vaulqv8w0g0" path="res://world/world.tscn" id="1_7vjgo"]
+[ext_resource type="PackedScene" uid="uid://2w2uve1pkgr3" path="res://ui/music_player.tscn" id="2_4fnlc"]
+[ext_resource type="Script" path="res://ui/janelas.gd" id="2_5s5sq"]
 [ext_resource type="Script" path="res://ui/terminal.gd" id="2_n7ovp"]
+[ext_resource type="FontFile" uid="uid://civ0f1puyfro8" path="res://font/runescape_uf.ttf" id="2_s8a7o"]
+[ext_resource type="Script" path="res://ui/watch.gd" id="4_dm740"]
+[ext_resource type="Script" path="res://ui/contrato.gd" id="5_3gci2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgpqd"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(1, 0, 1, 1)
+border_color = Color(0.156863, 0.156863, 0.156863, 1)
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -21,11 +25,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_jgiyb")
 
 [node name="background" type="Panel" parent="."]
-modulate = Color(0, 0, 0, 1)
-show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,56 +73,69 @@ layout_mode = 2
 [node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "1"
 
 [node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "2"
 
 [node name="Button7" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "3"
 
 [node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "4"
 
 [node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "5"
 
 [node name="Button5" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "6"
 
 [node name="Button6" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "7"
 
 [node name="Button8" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "8"
 
 [node name="Button9" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "9"
 
 [node name="Button10" type="Button" parent="MarginContainer/HBoxContainer/Esquerda/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "0"
 
 [node name="Memoria" type="ProgressBar" parent="MarginContainer/HBoxContainer/Esquerda"]
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="MusicPlayer" parent="MarginContainer/HBoxContainer/Esquerda" instance=ExtResource("2_4fnlc")]
+layout_mode = 2
 
 [node name="Direita" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -133,23 +147,27 @@ layout_mode = 2
 [node name="AbaTerminal" type="Button" parent="MarginContainer/HBoxContainer/Direita/Abas"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "Terminal"
 
 [node name="AbaWatch" type="Button" parent="MarginContainer/HBoxContainer/Direita/Abas"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "Watch"
 
 [node name="AbaContrato" type="Button" parent="MarginContainer/HBoxContainer/Direita/Abas"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 text = "Contrato"
 
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Direita"]
+[node name="Janelas" type="Control" parent="MarginContainer/HBoxContainer/Direita"]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_5s5sq")
 
-[node name="Terminal" type="TextEdit" parent="MarginContainer/HBoxContainer/Direita/Control"]
+[node name="Terminal" type="TextEdit" parent="MarginContainer/HBoxContainer/Direita/Janelas"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -157,23 +175,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_s8a7o")
 context_menu_enabled = false
 script = ExtResource("2_n7ovp")
 
-[node name="Watch" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Control"]
-visible = false
+[node name="Watch" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Janelas"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_dm740")
 
-[node name="Contrato" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Control"]
-visible = false
+[node name="Contrato" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Direita/Janelas"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_3gci2")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Direita/Abas/AbaTerminal" to="MarginContainer/HBoxContainer/Direita/Janelas" method="_on_aba_terminal_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Direita/Abas/AbaWatch" to="MarginContainer/HBoxContainer/Direita/Janelas" method="_on_aba_watch_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Direita/Abas/AbaContrato" to="MarginContainer/HBoxContainer/Direita/Janelas" method="_on_aba_contrato_pressed"]

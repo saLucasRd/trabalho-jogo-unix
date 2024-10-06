@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbmxx0a62w2pe"
+path="res://.godot/imported/Autechre - Further.mp3-34c609191af7c51a22fde86aeb73129b.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Autechre - Further.mp3"
+dest_files=["res://.godot/imported/Autechre - Further.mp3-34c609191af7c51a22fde86aeb73129b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

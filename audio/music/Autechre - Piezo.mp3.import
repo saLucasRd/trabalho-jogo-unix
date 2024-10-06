@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dstkt3okhxblv"
+path="res://.godot/imported/Autechre - Piezo.mp3-7289f406070c3c8e45693236484d4f90.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Autechre - Piezo.mp3"
+dest_files=["res://.godot/imported/Autechre - Piezo.mp3-7289f406070c3c8e45693236484d4f90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://2w2uve1pkgr3"]
+
+[ext_resource type="Script" path="res://ui/music_player.gd" id="1_tr86c"]
+[ext_resource type="FontFile" uid="uid://civ0f1puyfro8" path="res://font/runescape_uf.ttf" id="2_c74pq"]
+[ext_resource type="Texture2D" uid="uid://b1eyyx4b7f3tf" path="res://ui/icons/rewind.svg" id="2_xpmgf"]
+[ext_resource type="Texture2D" uid="uid://cvfcadjkx6u7o" path="res://ui/icons/play.svg" id="3_x10o1"]
+[ext_resource type="Texture2D" uid="uid://da4o37ka04dqs" path="res://ui/icons/fast-forward.svg" id="4_p5fg3"]
+[ext_resource type="Texture2D" uid="uid://dlfrvbg6577r3" path="res://ui/icons/unmute.svg" id="5_hh3ds"]
+
+[node name="MusicPlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tr86c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 78.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c74pq")
+text = "nothing"
+
+[node name="Status" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 10.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer"]
+volume_db = -20.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Previous" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c74pq")
+icon = ExtResource("2_xpmgf")
+flat = true
+
+[node name="PlayPause" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c74pq")
+icon = ExtResource("3_x10o1")
+flat = true
+
+[node name="Next" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c74pq")
+icon = ExtResource("4_p5fg3")
+flat = true
+
+[node name="UnmuteMute" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c74pq")
+icon = ExtResource("5_hh3ds")
+flat = true
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Volume" type="HSlider" parent="VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -7.5
+offset_right = 150.0
+offset_bottom = 8.5
+grow_vertical = 2
+size_flags_vertical = 1
+min_value = -10.0
+max_value = 10.0
+step = 0.1
+value = 5.0
+
+[connection signal="finished" from="VBoxContainer/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayPause" to="." method="_on_play_pause_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/UnmuteMute" to="." method="_on_unmute_mute_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Control/Volume" to="." method="_on_volume_value_changed"]

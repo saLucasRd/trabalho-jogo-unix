@@ -3,16 +3,17 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
-var on_fps_view = false
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+
+var on_fps_view = false
 
 func _ready():
 	# Start with the mouse visible
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			on_fps_view = true
@@ -21,7 +22,6 @@ func _unhandled_input(event):
 		elif event.button_index == MOUSE_BUTTON_RIGHT and not event.pressed:
 			on_fps_view = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Restore mouse visibility
-
 	# Handle mouse movement for FPS view
 	if event is InputEventMouseMotion and on_fps_view:
 		# Rotate the head and camera based on mouse movement
