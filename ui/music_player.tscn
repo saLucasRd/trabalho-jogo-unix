@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://2w2uve1pkgr3"]
+[gd_scene load_steps=8 format=3 uid="uid://2w2uve1pkgr3"]
 
 [ext_resource type="Script" path="res://ui/music_player.gd" id="1_tr86c"]
 [ext_resource type="FontFile" uid="uid://civ0f1puyfro8" path="res://font/runescape_uf.ttf" id="2_c74pq"]
+[ext_resource type="FontFile" uid="uid://cegr5e1kdxid" path="res://font/Hack-Regular.ttf" id="2_oxypv"]
 [ext_resource type="Texture2D" uid="uid://b1eyyx4b7f3tf" path="res://ui/icons/rewind.svg" id="2_xpmgf"]
 [ext_resource type="Texture2D" uid="uid://cvfcadjkx6u7o" path="res://ui/icons/play.svg" id="3_x10o1"]
 [ext_resource type="Texture2D" uid="uid://da4o37ka04dqs" path="res://ui/icons/fast-forward.svg" id="4_p5fg3"]
@@ -25,7 +26,7 @@ grow_horizontal = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_c74pq")
+theme_override_fonts/font = ExtResource("2_oxypv")
 text = "nothing"
 
 [node name="Status" type="HSlider" parent="VBoxContainer"]
