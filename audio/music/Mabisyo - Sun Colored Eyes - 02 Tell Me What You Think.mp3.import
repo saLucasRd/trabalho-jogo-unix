@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bl8q6ax3ijkc7"
+path="res://.godot/imported/Mabisyo - Sun Colored Eyes - 02 Tell Me What You Think.mp3-be77022cca9f433739b936619cd5aaab.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Mabisyo - Sun Colored Eyes - 02 Tell Me What You Think.mp3"
+dest_files=["res://.godot/imported/Mabisyo - Sun Colored Eyes - 02 Tell Me What You Think.mp3-be77022cca9f433739b936619cd5aaab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

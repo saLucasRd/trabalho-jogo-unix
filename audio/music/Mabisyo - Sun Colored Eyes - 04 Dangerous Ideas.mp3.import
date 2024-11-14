@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g6xpmbqlpjt1"
+path="res://.godot/imported/Mabisyo - Sun Colored Eyes - 04 Dangerous Ideas.mp3-ec9e61cef728177e0868edb836d3f926.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Mabisyo - Sun Colored Eyes - 04 Dangerous Ideas.mp3"
+dest_files=["res://.godot/imported/Mabisyo - Sun Colored Eyes - 04 Dangerous Ideas.mp3-ec9e61cef728177e0868edb836d3f926.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn0lhli1bk815"
+path="res://.godot/imported/Mabisyo - Sun Colored Eyes - 08 Ancient Sounds.mp3-fa557385c88d85a0387dc3027516485b.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Mabisyo - Sun Colored Eyes - 08 Ancient Sounds.mp3"
+dest_files=["res://.godot/imported/Mabisyo - Sun Colored Eyes - 08 Ancient Sounds.mp3-fa557385c88d85a0387dc3027516485b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

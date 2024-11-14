@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnw8co8ynpyd"
+path="res://.godot/imported/Mabisyo - Sun Colored Eyes - 06 Life Is a Countdown.mp3-0d37458d32c5dfd410d3b60650fac046.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Mabisyo - Sun Colored Eyes - 06 Life Is a Countdown.mp3"
+dest_files=["res://.godot/imported/Mabisyo - Sun Colored Eyes - 06 Life Is a Countdown.mp3-0d37458d32c5dfd410d3b60650fac046.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
