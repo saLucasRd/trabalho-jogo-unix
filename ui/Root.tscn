@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://ui/root.gd" id="1_xhwex"]
 [ext_resource type="PackedScene" uid="uid://2w2uve1pkgr3" path="res://ui/music_player.tscn" id="2_4fnlc"]
 [ext_resource type="Script" path="res://ui/janelas.gd" id="2_5s5sq"]
-[ext_resource type="Script" path="res://ui/terminal.gd" id="2_n7ovp"]
+[ext_resource type="Script" path="res://shell/shell.gd" id="2_n7ovp"]
 [ext_resource type="FontFile" uid="uid://cegr5e1kdxid" path="res://font/Hack-Regular.ttf" id="3_tb2pj"]
 [ext_resource type="Script" path="res://ui/watch.gd" id="4_dm740"]
 [ext_resource type="Script" path="res://ui/contrato.gd" id="5_3gci2"]
