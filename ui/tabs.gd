@@ -1,22 +1,23 @@
 extends Control
 
+
 @onready var watch: RichTextLabel = $Watch
-@onready var contrato: RichTextLabel = $Contract
-@onready var terminal: TextEdit = $Shell
+@onready var contract: RichTextLabel = $Contract
+@onready var terminal: TextEdit = $Terminal
 
 func _on_aba_terminal_pressed() -> void:
 	terminal.visible = true
 	watch.visible = false
-	contrato.visible = false
+	contract.visible = false
 
 
 func _on_aba_watch_pressed() -> void:
 	terminal.visible = false
 	watch.visible = true
-	contrato.visible = false
+	contract.visible = false
 
 
 func _on_aba_contrato_pressed() -> void:
 	terminal.visible = false
 	watch.visible = false
-	contrato.visible = true
+	contract.visible = true
