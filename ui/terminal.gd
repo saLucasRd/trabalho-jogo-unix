@@ -5,7 +5,7 @@ const MAX_LINES: int = 50
 const CARET: String = "█"
 var current_directory: String = "."
 var command_buffer: String = ""
-var sh := Shell.new()
+var sh: Shell = Shell.new()
 
 
 func _ready():
