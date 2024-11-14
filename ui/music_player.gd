@@ -5,21 +5,25 @@ const UNMUTE = preload("res://ui/icons/unmute.svg")
 const PLAY = preload("res://ui/icons/play.svg")
 const PAUSE = preload("res://ui/icons/pause.svg")
 
+
 @onready var previous: Button = $VBoxContainer/HBoxContainer/Previous
-@onready var next: Button = $VBoxContainer/HBoxContainer/Next
-@onready var audio_stream_player: AudioStreamPlayer = $VBoxContainer/AudioStreamPlayer
-@onready var label: Label = $VBoxContainer/Label
 @onready var play_pause: Button = $VBoxContainer/HBoxContainer/PlayPause
+@onready var next: Button = $VBoxContainer/HBoxContainer/Next
 @onready var unmute_mute: Button = $VBoxContainer/HBoxContainer/UnmuteMute
-@onready var volume: HSlider = $VBoxContainer/HBoxContainer/Control/Volume
+@onready var volume: HSlider = $VBoxContainer/HBoxContainer/Volume
+@onready var audio_stream_player: AudioStreamPlayer = $VBoxContainer/AudioStreamPlayer
 @onready var status: HSlider = $VBoxContainer/Status
+@onready var label: Label = $VBoxContainer/Label
+@onready var texture_rect: TextureRect = $TextureRect
 
 var collection: Array[AudioStream] = []
 var index: int = 0
 var playing = false
 
 func _ready() -> void:
-	var music_dir = DirAccess.get_files_at("res://audio/music")
+	var album_cover := load("res://audio/music/cover.png")
+	texture_rect.set_texture(album_cover)
+	var music_dir := DirAccess.get_files_at("res://audio/music")
 	for m in music_dir:
 		if m.ends_with(".mp3"):
 			collection.append(load("res://audio/music/" + m))

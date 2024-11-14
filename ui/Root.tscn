@@ -52,126 +52,126 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Left" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="FSView" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Left"]
+[node name="FSView" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Left/FSView"]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/VBoxContainer2/FSView"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="World" parent="MarginContainer/HBoxContainer/Left/FSView/SubViewport" instance=ExtResource("1_7vjgo")]
+[node name="World" parent="MarginContainer/HBoxContainer/VBoxContainer2/FSView/SubViewport" instance=ExtResource("1_7vjgo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.306478, 0)
 
-[node name="Camera2D" type="Camera2D" parent="MarginContainer/HBoxContainer/Left/FSView/SubViewport"]
+[node name="Camera2D" type="Camera2D" parent="MarginContainer/HBoxContainer/VBoxContainer2/FSView/SubViewport"]
 
-[node name="Binds" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Left"]
+[node name="Binds" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "1"
 
-[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "2"
 
-[node name="Button7" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button7" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "3"
 
-[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "4"
 
-[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "5"
 
-[node name="Button5" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "6"
 
-[node name="Button6" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button6" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "7"
 
-[node name="Button8" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button8" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "8"
 
-[node name="Button9" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button9" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "9"
 
-[node name="Button10" type="Button" parent="MarginContainer/HBoxContainer/Left/Binds"]
+[node name="Button10" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/Binds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "0"
 
-[node name="Memory" type="ProgressBar" parent="MarginContainer/HBoxContainer/Left"]
+[node name="Memory" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("3_tb2pj")
 
-[node name="MusicPlayer" parent="MarginContainer/HBoxContainer/Left" instance=ExtResource("2_4fnlc")]
+[node name="MusicPlayer" parent="MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("2_4fnlc")]
 layout_mode = 2
 
-[node name="Right" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Tabs" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Right"]
+[node name="Tabs" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ShellTab" type="Button" parent="MarginContainer/HBoxContainer/Right/Tabs"]
+[node name="ShellTab" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Tabs"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "Terminal"
 
-[node name="WatchTab" type="Button" parent="MarginContainer/HBoxContainer/Right/Tabs"]
+[node name="WatchTab" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Tabs"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "Watch"
 
-[node name="ContractTab" type="Button" parent="MarginContainer/HBoxContainer/Right/Tabs"]
+[node name="ContractTab" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Tabs"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_tb2pj")
 text = "Contrato"
 
-[node name="TabContent" type="Control" parent="MarginContainer/HBoxContainer/Right"]
+[node name="TabContent" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_5s5sq")
 
-[node name="Watch" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Right/TabContent"]
+[node name="Watch" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContent"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -181,7 +181,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_dm740")
 
-[node name="Contract" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Right/TabContent"]
+[node name="Contract" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContent"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -191,10 +191,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_3gci2")
 
-[node name="Shell" type="TextEdit" parent="MarginContainer/HBoxContainer/Right/TabContent"]
-layout_mode = 2
-offset_right = 616.0
-offset_bottom = 672.0
+[node name="Shell" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContent"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 theme_override_colors/font_readonly_color = Color(0.741176, 0.717647, 0.654902, 1)
 theme_override_fonts/font = ExtResource("3_tb2pj")
@@ -205,6 +208,6 @@ wrap_mode = 1
 autowrap_mode = 1
 script = ExtResource("2_n7ovp")
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Right/Tabs/ShellTab" to="MarginContainer/HBoxContainer/Right/TabContent" method="_on_aba_terminal_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Right/Tabs/WatchTab" to="MarginContainer/HBoxContainer/Right/TabContent" method="_on_aba_watch_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Right/Tabs/ContractTab" to="MarginContainer/HBoxContainer/Right/TabContent" method="_on_aba_contrato_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Tabs/ShellTab" to="MarginContainer/HBoxContainer/VBoxContainer/TabContent" method="_on_aba_terminal_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Tabs/WatchTab" to="MarginContainer/HBoxContainer/VBoxContainer/TabContent" method="_on_aba_watch_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Tabs/ContractTab" to="MarginContainer/HBoxContainer/VBoxContainer/TabContent" method="_on_aba_contrato_pressed"]
