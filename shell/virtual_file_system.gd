@@ -2,14 +2,19 @@ class_name VirtualFileSystem
 extends Node
 
 var level_path: String
+var file_system: File
 
 class File:
+	var name: String
 	var content: String
 	var is_dir: bool
+	var links: Array[File]
 	
-	func _init(content: String, is_dir: bool) -> void:
+	func _init(name: String, content: String, is_dir: bool, links: Array[File]) -> void:
+		self.name = name
 		self.content = content
 		self.is_dir = is_dir
+		self.links = links
 
 func _init(level_path: String):
 	self.level_path = level_path

@@ -18,7 +18,9 @@ func _input(event):
 		match event.keycode:
 			KEY_ENTER:
 				remove_last_caret()
-				self.text += sh.execute_command(command_buffer)
+				if command_buffer.length() > 0:
+					var command := sh.execute(command_buffer)
+					self.text += "\n" + command.output
 				prepare_prompt()
 			KEY_BACKSPACE:
 				if command_buffer.length() > 0:
