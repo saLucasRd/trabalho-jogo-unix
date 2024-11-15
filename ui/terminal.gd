@@ -69,7 +69,7 @@ func prepare_prompt():
 
 
 func print_prompt():
-	self.text += "\n$ " + CARET
+	self.text += "$ " + CARET
 
 
 func limit_text():

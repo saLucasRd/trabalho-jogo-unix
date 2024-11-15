@@ -86,14 +86,14 @@ func man_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> Com
 LS  [DIRETORIO] MOSTRA CONTEUDO DE DIRETORIOS
 CD  DIRETORIO   MUDA DE DIRETORIO
 PWD             MOSTRA DIRETORIO ATUAL
-CAT ARQUIVO     MOSTRA / CONCATENA CONTEUDO DE ARQUIVOS", TerminationStatus.EXIT_SUCCESS)
-"res://level/level1_root/"
+CAT ARQUIVO     MOSTRA / CONCATENA CONTEUDO DE ARQUIVOS\n", TerminationStatus.EXIT_SUCCESS)
+
 func ls_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	print(is_pipe)
 	print("Previous Command Output:", previous_command.output)
 	print(args)
 	# Simulação do comando LS
-	var output = "FILES: " + (args[0] if args.size() > 0 else ".")
+	var output = "FILES: " + (args[0] if args.size() > 0 else ".") + "\n"
 	return CommandResult.new(output, TerminationStatus.EXIT_SUCCESS)
 
 
@@ -104,9 +104,9 @@ func cd_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> Comm
 	# Simulação do comando CD
 	if args.size() > 0:
 		var dir = args[0]
-		return CommandResult.new("DIR CHANGED TO: " + dir, TerminationStatus.EXIT_SUCCESS)
+		return CommandResult.new("DIR CHANGED TO: \n" + dir, TerminationStatus.EXIT_SUCCESS)
 	else:
-		return CommandResult.new("ERRO: NO DIR ESPECIFIED.", TerminationStatus.EXIT_FAILURE)
+		return CommandResult.new("ERROR: NO DIR ESPECIFIED.\n", TerminationStatus.EXIT_FAILURE)
 
 
 func pwd_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
@@ -114,7 +114,7 @@ func pwd_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> Com
 	print("Previous Command Output:", previous_command.output)
 	print(args)
 	# Simulação do comando PWD
-	var output = "/HOME/USER"  # Exemplo de saída do diretório
+	var output = "/HOME/USER\n"  # Exemplo de saída do diretório
 	return CommandResult.new(output, TerminationStatus.EXIT_SUCCESS)
 
 
@@ -124,5 +124,5 @@ func echo_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> Co
 	print(args)
 	# Simulação do comando ECHO
 	var a = PackedStringArray(args)
-	var output = " ".join(a)
+	var output = " ".join(a) + "\n"
 	return CommandResult.new(output, TerminationStatus.EXIT_SUCCESS)
