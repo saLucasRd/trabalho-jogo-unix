@@ -50,7 +50,7 @@ func prepare_commands(commands: String) -> Array:
 
 
 func command_not_found(command: String) -> String:
-	return "DSH: %s: COMMAND NOT FOUND" % command
+	return "DSH: %s: COMMAND NOT FOUND\n" % command
 
 
 func all_commands_exist(command: Array) -> CommandResult:
