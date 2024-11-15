@@ -20,6 +20,7 @@ var collection: Array[AudioStream] = []
 var index: int = 0
 var playing = false
 
+
 func _ready() -> void:
 	var album_cover := load("res://audio/music/cover.png")
 	texture_rect.set_texture(album_cover)
@@ -30,7 +31,8 @@ func _ready() -> void:
 	collection.shuffle()
 	label.text = collection[index].resource_path.get_file().get_basename()
 	audio_stream_player.stream = collection[index]
-	
+
+
 func update_song():
 	label.text = collection[index].resource_path.get_file().get_basename()
 	audio_stream_player.stream = collection[index]
@@ -64,7 +66,9 @@ func _on_audio_stream_player_finished() -> void:
 	update_song()
 	audio_stream_player.play()
 
+
 func _on_play_pause_pressed() -> void:
+	print(1)
 	if !playing:
 		playing = true
 		audio_stream_player.play()
