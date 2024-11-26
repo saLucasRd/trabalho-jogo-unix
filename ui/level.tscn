@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwq1mdvnentq5"]
+
+[ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="1_m123p"]
+[ext_resource type="Texture2D" uid="uid://bv8u762vxgqlq" path="res://assets/image/file.png" id="1_qdplc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db4pk"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi1n3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1eorh"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer2" type="GridContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_qdplc")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_qdplc")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_qdplc")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_qdplc")
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_qdplc")
+
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_qdplc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_m123p")
+bbcode_enabled = true
+text = "Liste todos as extensoes de arquivo do diretorio atual [color=green]unicamente[/color] e [color=blue]em ordem alfabetica[/color]"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_m123p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_db4pk")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_yi1n3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1eorh")

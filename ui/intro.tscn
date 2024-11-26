@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmlmmfbyq4xeo"]
+
+[ext_resource type="Script" path="res://ui/intro.gd" id="1_4330r"]
+[ext_resource type="AudioStream" uid="uid://b3tear1si3uom" path="res://assets/sound/intro.mp3" id="2_exb01"]
+[ext_resource type="FontFile" uid="uid://df3sihto8owba" path="res://assets/font/CP437.ttf" id="2_m6wal"]
+[ext_resource type="Shader" path="res://ui/crt.gdshader" id="4_js2jl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owbqn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jf8tm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20wfd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eoa71"]
+shader = ExtResource("4_js2jl")
+
+[sub_resource type="QuadMesh" id="QuadMesh_try7u"]
+size = Vector2(320, 240)
+center_offset = Vector3(160, 120, 0)
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4330r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_exb01")
+volume_db = -7.26
+autoplay = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_m6wal")
+theme_override_styles/normal = SubResource("StyleBoxFlat_owbqn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jf8tm")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_20wfd")
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+autowrap_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_eoa71")
+mesh = SubResource("QuadMesh_try7u")
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

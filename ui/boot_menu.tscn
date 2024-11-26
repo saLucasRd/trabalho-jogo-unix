@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://cidsamw2yq3jf"]
+
+[ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="1_2maqq"]
+[ext_resource type="Script" path="res://ui/boot_menu.gd" id="1_g6qls"]
+[ext_resource type="AudioStream" uid="uid://b6clwcdsegju" path="res://assets/sound/kenney-interface-sounds/error_006.ogg" id="2_getiu"]
+[ext_resource type="Shader" path="res://ui/crt.gdshader" id="2_v1lks"]
+[ext_resource type="AudioStream" uid="uid://cjy8lckpo0ke2" path="res://assets/sound/kenney-interface-sounds/tick_001.ogg" id="3_gc0q5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2ek1"]
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eoa71"]
+shader = ExtResource("2_v1lks")
+
+[sub_resource type="QuadMesh" id="QuadMesh_try7u"]
+size = Vector2(320, 240)
+center_offset = Vector3(160, 120, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BootMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -28.0
+offset_right = 31.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_g6qls")
+metadata/_edit_group_ = true
+
+[node name="error" type="AudioStreamPlayer" parent="BootMenu"]
+stream = ExtResource("2_getiu")
+
+[node name="tick" type="AudioStreamPlayer" parent="BootMenu"]
+stream = ExtResource("3_gc0q5")
+
+[node name="StartLabel" type="Label" parent="BootMenu"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2ek1")
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsLabel" type="Label" parent="BootMenu"]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitLabel" type="Label" parent="BootMenu"]
+texture_filter = 1
+layout_mode = 2
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NaoImplementado" type="Label" parent="BootMenu"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2maqq")
+theme_override_font_sizes/font_size = 16
+text = "(nao implementado)"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_eoa71")
+mesh = SubResource("QuadMesh_try7u")
