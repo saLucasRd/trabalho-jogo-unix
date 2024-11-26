@@ -17,4 +17,4 @@ func junk_generator() -> String:
 	return a
 
 func _on_audio_stream_player_finished() -> void:
-	get_tree().change_scene_to_file("res://ui/dekstop.tscn")
+	get_tree().change_scene_to_file("res://ui/desktop.tscn")

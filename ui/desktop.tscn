@@ -1,17 +1,17 @@
 [gd_scene load_steps=12 format=3 uid="uid://lph1o4dijnjc"]
 
-[ext_resource type="Script" path="res://ui/desktop.gd" id="1_ec05d"]
-[ext_resource type="Texture2D" uid="uid://d36xin7oghlxn" path="res://assets/image/desktop.png" id="2_fi3u1"]
-[ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="3_222ki"]
-[ext_resource type="Texture2D" uid="uid://dswps1iu1gws1" path="res://assets/image/manual.png" id="4_147d3"]
-[ext_resource type="Texture2D" uid="uid://cji2agsyaiiwi" path="res://assets/image/terminal.png" id="5_jsnnj"]
-[ext_resource type="Texture2D" uid="uid://cbyxaoorcmv7o" path="res://assets/image/level1.png" id="6_uxwp5"]
-[ext_resource type="Texture2D" uid="uid://b4ttkj7bq5wud" path="res://assets/image/level2.png" id="7_1vwla"]
-[ext_resource type="Texture2D" uid="uid://dlm4t8qfbnlfg" path="res://assets/image/turn_off.png" id="8_p0ykm"]
-[ext_resource type="Shader" path="res://ui/crt.gdshader" id="9_1kqv0"]
+[ext_resource type="Script" path="res://ui/desktop.gd" id="1_pnges"]
+[ext_resource type="Texture2D" uid="uid://d36xin7oghlxn" path="res://assets/image/desktop.png" id="2_174vh"]
+[ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="3_3akdl"]
+[ext_resource type="Texture2D" uid="uid://dswps1iu1gws1" path="res://assets/image/manual.png" id="4_ransu"]
+[ext_resource type="Texture2D" uid="uid://cji2agsyaiiwi" path="res://assets/image/terminal.png" id="5_8xua1"]
+[ext_resource type="Texture2D" uid="uid://cbyxaoorcmv7o" path="res://assets/image/level1.png" id="6_jtde1"]
+[ext_resource type="Texture2D" uid="uid://b4ttkj7bq5wud" path="res://assets/image/level2.png" id="7_phh2m"]
+[ext_resource type="Texture2D" uid="uid://dlm4t8qfbnlfg" path="res://assets/image/turn_off.png" id="8_esllx"]
+[ext_resource type="Shader" path="res://ui/crt.gdshader" id="9_mkkfc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obpy6"]
-shader = ExtResource("9_1kqv0")
+shader = ExtResource("9_mkkfc")
 
 [sub_resource type="QuadMesh" id="QuadMesh_tc6kc"]
 size = Vector2(320, 240)
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_ec05d")
+script = ExtResource("1_pnges")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -36,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_fi3u1")
+texture = ExtResource("2_174vh")
 
 [node name="TutorialLabel" type="Label" parent="."]
 layout_mode = 0
@@ -44,7 +44,7 @@ offset_left = 17.0
 offset_top = 16.0
 offset_right = 73.0
 offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("3_222ki")
+theme_override_fonts/font = ExtResource("3_3akdl")
 text = "<- tutorial!!!!!!! :)"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -59,7 +59,7 @@ grow_vertical = 2
 [node name="Datetime" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_fonts/font = ExtResource("3_222ki")
+theme_override_fonts/font = ExtResource("3_3akdl")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
@@ -76,22 +76,22 @@ grow_vertical = 2
 [node name="ManButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("4_147d3")
+texture_normal = ExtResource("4_ransu")
 
 [node name="TerminalApp" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("5_jsnnj")
+texture_normal = ExtResource("5_8xua1")
 
 [node name="Level1App" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("6_uxwp5")
+texture_normal = ExtResource("6_jtde1")
 
 [node name="Level2App" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("7_1vwla")
+texture_normal = ExtResource("7_phh2m")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -99,7 +99,7 @@ size_flags_vertical = 3
 
 [node name="TurnOffButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("8_p0ykm")
+texture_normal = ExtResource("8_esllx")
 
 [node name="DesktopArea" type="Control" parent="."]
 layout_mode = 1
