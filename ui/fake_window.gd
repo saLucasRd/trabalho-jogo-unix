@@ -13,6 +13,7 @@ func _ready() -> void:
 	bar.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
 	close.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
 
+
 func _on_bar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# Start dragging on left mouse button press
@@ -28,8 +29,3 @@ func _on_bar_gui_input(event: InputEvent) -> void:
 
 func _on_close_pressed() -> void:
 	queue_free()
-
-func _gui_input(event):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("Parent detected mouse click at: ", event.position)
