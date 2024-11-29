@@ -15,7 +15,7 @@ static var bin_dict := {
 	"COWSAY": cowsay_bin,
 }
 
-static func man_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func man_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	print(is_pipe)
 	print("Previous Command Output:", previous_command.output)
 	print(args)
@@ -26,7 +26,7 @@ CD  DIRETORIO   MUDA DE DIRETORIO
 PWD             MOSTRA DIRETORIO ATUAL
 CAT ARQUIVO     MOSTRA / CONCATENA CONTEUDO DE ARQUIVOS\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
 
-static func ls_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func ls_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
@@ -36,7 +36,7 @@ static func ls_bin(args: Array[String], is_pipe: bool, previous_command: Command
 	var output = "FILES: " + (args[0] if args.size() > 0 else ".") + "\n"
 	return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
 	
-static func grep_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func grep_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
@@ -56,7 +56,7 @@ static func echo_bin(args: Array, is_pipe: bool, previous_command: CommandResult
 	var output = " ".join(a) + "\n"
 	return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
 
-static func cut_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func cut_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	# Simulação do comando ECHO
@@ -64,7 +64,7 @@ static func cut_bin(args: Array[String], is_pipe: bool, previous_command: Comman
 	var output = " ".join(a) + "\n"
 	return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
 
-static func cd_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func cd_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
@@ -78,7 +78,7 @@ static func cd_bin(args: Array[String], is_pipe: bool, previous_command: Command
 		return CommandResult.new("ERROR: NO DIR ESPECIFIED.\n", CommandResult.TerminationStatus.EXIT_FAILURE)
 
 
-static func pwd_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func pwd_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
@@ -88,7 +88,7 @@ static func pwd_bin(args: Array[String], is_pipe: bool, previous_command: Comman
 	var output = "/HOME/USER\n"  # Exemplo de saída do diretório
 	return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
 
-static func cat_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func cat_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
@@ -100,7 +100,7 @@ static func cat_bin(args: Array[String], is_pipe: bool, previous_command: Comman
 	else:
 		return CommandResult.new("ERRO: NENHUM ARQUIVO ESPECIFICADO.\n", CommandResult.TerminationStatus.EXIT_FAILURE)
 
-static func sort_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func sort_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
@@ -110,7 +110,7 @@ static func sort_bin(args: Array[String], is_pipe: bool, previous_command: Comma
 	var output = "FILES: " + (args[0] if args.size() > 0 else ".") + "\n"
 	return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
 
-static func uniq_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func uniq_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
@@ -120,7 +120,7 @@ static func uniq_bin(args: Array[String], is_pipe: bool, previous_command: Comma
 	var output = "FILES: " + (args[0] if args.size() > 0 else ".") + "\n"
 	return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
 
-static func xargs_bin(args: Array[String], is_pipe: bool, previous_command: CommandResult) -> CommandResult:
+static func xargs_bin(args: Array, is_pipe: bool, previous_command: CommandResult) -> CommandResult:
 	if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return previous_command
 	print(is_pipe)
