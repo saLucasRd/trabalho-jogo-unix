@@ -1,20 +1,22 @@
 extends Control
 
-signal used
+@onready var bar: ColorRect = $VBoxContainer/HBoxContainer/Bar
+@onready var close: TextureButton = $VBoxContainer/HBoxContainer/Close
 
-func _on_texture_button_pressed() -> void:
-	queue_free()
+signal clicked
 
 # Tracks if the window is being dragged
 var is_dragging: bool = false
 var drag_offset: Vector2
 
+func _ready() -> void:
+	bar.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
+	close.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
 
 func _on_bar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# Start dragging on left mouse button press
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			used.emit()
 			is_dragging = true
 			drag_offset = event.position
 		elif event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
@@ -26,3 +28,8 @@ func _on_bar_gui_input(event: InputEvent) -> void:
 
 func _on_close_pressed() -> void:
 	queue_free()
+
+func _gui_input(event):
+	if event is InputEventMouseButton:
+		if event.pressed:
+			print("Parent detected mouse click at: ", event.position)

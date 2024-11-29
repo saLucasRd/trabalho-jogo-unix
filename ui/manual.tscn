@@ -7,6 +7,7 @@
 
 [node name="Manual" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_left = 12.0
 offset_top = 26.0
 offset_right = 276.0
@@ -19,6 +20,7 @@ offset_top = 168.0
 offset_right = 16.0
 offset_bottom = 184.0
 grow_vertical = 0
+mouse_filter = 1
 texture_normal = ExtResource("2_yy5c3")
 
 [node name="NextPage" type="TextureButton" parent="."]
@@ -30,6 +32,7 @@ offset_right = 264.0
 offset_bottom = 184.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 1
 texture_normal = ExtResource("3_j3jhl")
 
 [node name="Index" type="TextureButton" parent="."]
@@ -40,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 0.067
 offset_bottom = -0.0799999
 grow_horizontal = 0
+mouse_filter = 1
 texture_normal = ExtResource("4_5p56o")
 
 [node name="Page0-1" type="HBoxContainer" parent="."]
@@ -51,6 +55,7 @@ theme_override_constants/separation = 0
 [node name="Page1" type="RichTextLabel" parent="Page0-1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("1_2m75n")
 bbcode_enabled = true
 text = "[font_size=32]The pseudo-unix admin manual[/font_size]
@@ -60,3 +65,4 @@ fit_content = true
 [node name="ReferenceRect" type="ReferenceRect" parent="Page0-1"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1

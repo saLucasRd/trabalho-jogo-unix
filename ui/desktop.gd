@@ -5,6 +5,7 @@ const WINDOW = preload("res://ui/fake_window.tscn")
 const TERMINAL = preload("res://ui/terminal.tscn")
 const MANUAL = preload("res://ui/manual.tscn")
 const LEVEL = preload("res://ui/level.tscn")
+
 @onready var desktop_area: Control = $DesktopArea
 @onready var datetime: Label = $HBoxContainer/Datetime
 @onready var tutorial_label: Label = $TutorialLabel
@@ -21,17 +22,24 @@ func instatentiate_window(resource: PackedScene) -> void:
 	var window := WINDOW.instantiate()
 	var thing := resource.instantiate()
 	window.get_node("VBoxContainer").add_child(thing)
-
+	thing.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
+	window.gui_input.connect(func (event: InputEvent):
+		if event is InputEventMouseButton and event.pressed:
+			desktop_area.move_child(window, desktop_area.get_child_count() - 1)
+			print_tree_pretty()
+			print(1)
+		)
 	desktop_area.add_child(window)
 	thing.grab_focus()
-	
+
+
 func _on_window_focused(focused_window):
 	# Raise the focused window to the top
 	focused_window.raise()
 
+
 func _on_terminal_app_pressed() -> void:
 	instatentiate_window(TERMINAL)
-	print_tree_pretty()
 
 
 func _on_man_button_pressed() -> void:
