@@ -32,6 +32,7 @@ texture_normal = ExtResource("4_5p56o")
 [node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="Page1-2" type="HBoxContainer" parent="VBoxContainer/Control"]
 layout_mode = 1
@@ -115,6 +116,7 @@ texture_normal = ExtResource("2_yy5c3")
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 border_color = Color(1, 0, 0, 0)
 
 [node name="NextPage" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
