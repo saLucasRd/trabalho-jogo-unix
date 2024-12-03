@@ -3,7 +3,6 @@ extends Control
 @onready var bar: ColorRect = $VBoxContainer/HBoxContainer/Bar
 @onready var close: TextureButton = $VBoxContainer/HBoxContainer/Close
 
-signal clicked
 
 # Tracks if the window is being dragged
 var is_dragging: bool = false

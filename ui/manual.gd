@@ -1,7 +1,7 @@
 extends Control
 
-@onready var page_1n2 = get_node("Page1-2")
-@onready var page_3n4 = get_node("Page3-4")
+@onready var page_1_2: HBoxContainer = $"VBoxContainer/Control/Page1-2"
+@onready var page_3_4: HBoxContainer = $"VBoxContainer/Control/Page3-4"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,12 +14,12 @@ func _process(delta: float) -> void:
 
 
 func _on_next_page_pressed() -> void:
-	if page_1n2.visible == true:
-		page_1n2.visible = false
-		page_3n4.visible = true
+	if page_1_2.visible == true:
+		page_1_2.visible = false
+		page_3_4.visible = true
 
 
 func _on_previous_page_pressed() -> void:
-	if page_3n4.visible == true:
-		page_1n2.visible = true
-		page_3n4.visible = false
+	if page_3_4.visible == true:
+		page_1_2.visible = true
+		page_3_4.visible = false
