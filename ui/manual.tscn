@@ -8,20 +8,42 @@
 
 [node name="Manual" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 12.0
-offset_top = 26.0
-offset_right = 276.0
-offset_bottom = 210.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_wdigb")
 
-[node name="Page1-2" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 264.0
-offset_bottom = 184.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Index" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+texture_normal = ExtResource("4_5p56o")
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Page1-2" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Page1" type="RichTextLabel" parent="Page1-2"]
+[node name="Page1" type="RichTextLabel" parent="VBoxContainer/Control/Page1-2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -29,9 +51,8 @@ theme_override_fonts/normal_font = ExtResource("1_2m75n")
 bbcode_enabled = true
 text = "[font_size=32]The pseudo-unix admin manual[/font_size]
 by Ludihan, DomIsaac"
-fit_content = true
 
-[node name="Page2" type="RichTextLabel" parent="Page1-2"]
+[node name="Page2" type="RichTextLabel" parent="VBoxContainer/Control/Page1-2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -46,16 +67,18 @@ echo: Prints text to the console.
 cut: Extracts sections from each line of files.
 
 cd: Changes the current directory."
-fit_content = true
 
-[node name="Page3-4" type="HBoxContainer" parent="."]
+[node name="Page3-4" type="HBoxContainer" parent="VBoxContainer/Control"]
 visible = false
 layout_mode = 1
-offset_right = 264.0
-offset_bottom = 184.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Page3" type="RichTextLabel" parent="Page3-4"]
+[node name="Page3" type="RichTextLabel" parent="VBoxContainer/Control/Page3-4"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -70,7 +93,7 @@ sort: Sorts lines of text.
 uniq: Filters out adjacent repeated lines."
 fit_content = true
 
-[node name="Page4" type="RichTextLabel" parent="Page3-4"]
+[node name="Page4" type="RichTextLabel" parent="VBoxContainer/Control/Page3-4"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -80,38 +103,25 @@ text = "xargs: Builds and executes command lines from standard input.
 "
 fit_content = true
 
-[node name="PreviousPage" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = -1
-offset_top = 168.0
-offset_right = 16.0
-offset_bottom = 184.0
-grow_vertical = 0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PreviousPage" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 1
 texture_normal = ExtResource("2_yy5c3")
 
-[node name="NextPage" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 250.8
-offset_top = 171.752
-offset_right = 264.0
-offset_bottom = 184.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+border_color = Color(1, 0, 0, 0)
+
+[node name="NextPage" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
 mouse_filter = 1
 texture_normal = ExtResource("3_j3jhl")
 
-[node name="Index" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.95
-anchor_right = 1.0
-anchor_bottom = 0.067
-offset_bottom = -0.0799999
-grow_horizontal = 0
-mouse_filter = 1
-texture_normal = ExtResource("4_5p56o")
-
-[connection signal="pressed" from="PreviousPage" to="." method="_on_previous_page_pressed"]
-[connection signal="pressed" from="NextPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NextPage" to="." method="_on_next_page_pressed"]

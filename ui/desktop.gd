@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 func instatentiate_window(resource: PackedScene) -> void:
 	var window := WINDOW.instantiate()
 	var thing := resource.instantiate()
-	window.get_node("VBoxContainer").add_child(thing)
+	window.get_node("VBoxContainer/Content").add_child(thing)
 	thing.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
 	window.gui_input.connect(func (event: InputEvent):
 		if event is InputEventMouseButton and event.pressed:
