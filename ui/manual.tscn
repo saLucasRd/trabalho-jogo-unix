@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://4xnog2e3kigt"]
+[gd_scene load_steps=6 format=3 uid="uid://4xnog2e3kigt"]
 
 [ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="1_2m75n"]
+[ext_resource type="Script" path="res://ui/manual.gd" id="1_wdigb"]
 [ext_resource type="Texture2D" uid="uid://dr8d5ri118y0u" path="res://assets/image/left_arrow.png" id="2_yy5c3"]
 [ext_resource type="Texture2D" uid="uid://16gn2xm5aa5p" path="res://assets/image/right_arrow.png" id="3_j3jhl"]
 [ext_resource type="Texture2D" uid="uid://c0fo7j5lycl25" path="res://assets/image/bookmark.png" id="4_5p56o"]
@@ -12,6 +13,72 @@ offset_left = 12.0
 offset_top = 26.0
 offset_right = 276.0
 offset_bottom = 210.0
+script = ExtResource("1_wdigb")
+
+[node name="Page1-2" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 264.0
+offset_bottom = 184.0
+theme_override_constants/separation = 0
+
+[node name="Page1" type="RichTextLabel" parent="Page1-2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "[font_size=32]The pseudo-unix admin manual[/font_size]
+by Ludihan, DomIsaac"
+fit_content = true
+
+[node name="Page2" type="RichTextLabel" parent="Page1-2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "ls: Lists files and directories in the current directory.
+
+grep: Searches for patterns in files.
+
+echo: Prints text to the console.
+
+cut: Extracts sections from each line of files.
+
+cd: Changes the current directory."
+fit_content = true
+
+[node name="Page3-4" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+offset_right = 264.0
+offset_bottom = 184.0
+theme_override_constants/separation = 0
+
+[node name="Page3" type="RichTextLabel" parent="Page3-4"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "pwd: Prints the current working directory.
+
+cat: Concatenates and displays files.
+
+sort: Sorts lines of text.
+
+uniq: Filters out adjacent repeated lines."
+fit_content = true
+
+[node name="Page4" type="RichTextLabel" parent="Page3-4"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "xargs: Builds and executes command lines from standard input.
+"
+fit_content = true
 
 [node name="PreviousPage" type="TextureButton" parent="."]
 layout_mode = 1
@@ -46,23 +113,5 @@ grow_horizontal = 0
 mouse_filter = 1
 texture_normal = ExtResource("4_5p56o")
 
-[node name="Page0-1" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 264.0
-offset_bottom = 183.0
-theme_override_constants/separation = 0
-
-[node name="Page1" type="RichTextLabel" parent="Page0-1"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
-bbcode_enabled = true
-text = "[font_size=32]The pseudo-unix admin manual[/font_size]
-by ludihan"
-fit_content = true
-
-[node name="ReferenceRect" type="ReferenceRect" parent="Page0-1"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
+[connection signal="pressed" from="PreviousPage" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="NextPage" to="." method="_on_next_page_pressed"]
