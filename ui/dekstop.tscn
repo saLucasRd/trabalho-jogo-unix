@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0prcbrvomul6"]
+[gd_scene load_steps=13 format=3 uid="uid://d0prcbrvomul6"]
 
 [ext_resource type="Script" path="res://ui/desktop.gd" id="1_ec05d"]
 [ext_resource type="Texture2D" uid="uid://d36xin7oghlxn" path="res://assets/image/desktop.png" id="2_fi3u1"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cbyxaoorcmv7o" path="res://assets/image/level1.png" id="6_uxwp5"]
 [ext_resource type="Texture2D" uid="uid://b4ttkj7bq5wud" path="res://assets/image/level2.png" id="7_1vwla"]
 [ext_resource type="Texture2D" uid="uid://dlm4t8qfbnlfg" path="res://assets/image/turn_off.png" id="8_p0ykm"]
+[ext_resource type="Texture2D" uid="uid://byrk782rl8ikl" path="res://assets/image/shop.png" id="8_xm6xp"]
 [ext_resource type="Shader" path="res://ui/crt.gdshader" id="9_1kqv0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_obpy6"]
@@ -93,6 +94,10 @@ layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("7_1vwla")
 
+[node name="ShopApp" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_xm6xp")
+
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -121,4 +126,5 @@ mesh = SubResource("QuadMesh_tc6kc")
 [connection signal="pressed" from="VBoxContainer/ManButton" to="." method="_on_man_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/TerminalApp" to="." method="_on_terminal_app_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level1App" to="." method="_on_level_1_app_pressed"]
+[connection signal="pressed" from="VBoxContainer/ShopApp" to="." method="_on_shop_app_pressed"]
 [connection signal="pressed" from="VBoxContainer/TurnOffButton" to="." method="_on_turn_off_button_pressed"]
