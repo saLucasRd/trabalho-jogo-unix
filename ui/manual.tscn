@@ -54,9 +54,9 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("1_2m75n")
 bbcode_enabled = true
-text = "[color=red][font_size= 30]The pseudo-unix
+text = "[color=red][font_size=32]The pseudo-unix
 admin manual
-[color= green][font_size= 15]
+[color= green][font_size=16]
 by ludihan, donissac, fatkiwi"
 
 [node name="Page2" type="RichTextLabel" parent="VBoxContainer/Control/Page1-2"]
@@ -74,6 +74,7 @@ text = "Summary
 5. cowsay - ???"
 
 [node name="Page3-4" type="HBoxContainer" parent="VBoxContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,6 +120,7 @@ cd /var/log
 cd ~"
 
 [node name="Page5-6" type="HBoxContainer" parent="VBoxContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,6 +164,7 @@ Examples:
 pwd"
 
 [node name="Page7-8" type="HBoxContainer" parent="VBoxContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -206,6 +209,7 @@ sort names.txt
 sort data.log"
 
 [node name="Page9-10" type="HBoxContainer" parent="VBoxContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -249,6 +253,7 @@ echo \"file1 file2\" | xargs rm
 cat command_list.txt | xargs sh -c"
 
 [node name="Page11-12" type="HBoxContainer" parent="VBoxContainer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
