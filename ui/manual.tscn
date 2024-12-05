@@ -15,6 +15,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wdigb")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_right = 320.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -50,8 +54,10 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("1_2m75n")
 bbcode_enabled = true
-text = "[font_size=32]The pseudo-unix admin manual[/font_size]
-by Ludihan, DomIsaac"
+text = "[color=red][font_size= 30]The pseudo-unix
+admin manual
+[color= green][font_size= 15]
+by ludihan, donissac, fatkiwi"
 
 [node name="Page2" type="RichTextLabel" parent="VBoxContainer/Control/Page1-2"]
 layout_mode = 2
@@ -59,18 +65,15 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("1_2m75n")
 bbcode_enabled = true
-text = "ls: Lists files and directories in the current directory.
+text = "Summary
 
-grep: Searches for patterns in files.
-
-echo: Prints text to the console.
-
-cut: Extracts sections from each line of files.
-
-cd: Changes the current directory."
+1. ls - cd
+2. echo - pwd
+3. grep - sort
+4. uniq - xargs
+5. cowsay - ???"
 
 [node name="Page3-4" type="HBoxContainer" parent="VBoxContainer/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,13 +88,19 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("1_2m75n")
 bbcode_enabled = true
-text = "pwd: Prints the current working directory.
+text = "ls
 
-cat: Concatenates and displays files.
+Description:
+Lists the contents of directories.
 
-sort: Sorts lines of text.
+Syntax:
 
-uniq: Filters out adjacent repeated lines."
+ls [directory]
+
+Examples:
+
+ls /home/user
+ls ."
 fit_content = true
 
 [node name="Page4" type="RichTextLabel" parent="VBoxContainer/Control/Page3-4"]
@@ -100,7 +109,207 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("1_2m75n")
 bbcode_enabled = true
-text = "xargs: Builds and executes command lines from standard input.
+text = "cd
+
+Description:
+Changes the current working directory.
+
+Syntax:
+
+cd [directory]
+
+Examples:
+
+cd /var/log
+cd ~"
+fit_content = true
+
+[node name="Page5-6" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Page5" type="RichTextLabel" parent="VBoxContainer/Control/Page5-6"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "echo
+
+Description:
+Displays a line of text to the standard output.
+
+Syntax:
+
+echo [string...]
+
+Examples:
+
+echo \"Hello, world!\"
+echo $HOME"
+fit_content = true
+
+[node name="Page6" type="RichTextLabel" parent="VBoxContainer/Control/Page5-6"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "pwd
+
+Description: Displays the full path of the current working directory.
+
+Syntax:
+
+pwd
+
+Examples:
+
+    pwd"
+fit_content = true
+
+[node name="Page7-8" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Page7" type="RichTextLabel" parent="VBoxContainer/Control/Page7-8"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "grep
+
+Description:
+Searches for patterns in files or standard input.
+
+Syntax:
+
+grep pattern [file...]
+
+Examples:
+
+grep \"error\" log.txt
+grep \"password\" file1.txt file2.txt"
+fit_content = true
+
+[node name="Page8" type="RichTextLabel" parent="VBoxContainer/Control/Page7-8"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "sort
+
+Description: Sorts lines of text.
+
+Syntax:
+
+sort [file...]
+
+Examples:
+
+    sort names.txt
+    sort data.log"
+fit_content = true
+
+[node name="Page9-10" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Page9" type="RichTextLabel" parent="VBoxContainer/Control/Page9-10"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "uniq
+
+Description: Removes consecutive duplicate lines.
+
+Syntax:
+
+uniq [input] [output]
+
+Examples:
+
+    uniq list.txt
+    uniq data.txt unique_data.txt"
+fit_content = true
+
+[node name="Page10" type="RichTextLabel" parent="VBoxContainer/Control/Page9-10"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "xargs
+
+Description: Builds and executes commands from standard input.
+
+Syntax:
+
+xargs [command]
+
+Examples:
+
+    echo \"file1 file2\" | xargs rm
+    cat command_list.txt | xargs sh -c"
+fit_content = true
+
+[node name="Page11-12" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Page11" type="RichTextLabel" parent="VBoxContainer/Control/Page11-12"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "cowsay
+
+Description:
+Displays a message as a cow in ASCII art.
+
+Syntax:
+
+cow say MESSAGE
+
+Examples:
+
+cow say \"Hello, world!\"
+cow say \"I'm a talking cow!\""
+fit_content = true
+
+[node name="Page12" type="RichTextLabel" parent="VBoxContainer/Control/Page11-12"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_2m75n")
+bbcode_enabled = true
+text = "ඞ
+
 "
 fit_content = true
 
@@ -125,5 +334,6 @@ size_flags_horizontal = 8
 mouse_filter = 1
 texture_normal = ExtResource("3_j3jhl")
 
+[connection signal="pressed" from="VBoxContainer/Index" to="." method="_on_index_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/NextPage" to="." method="_on_next_page_pressed"]

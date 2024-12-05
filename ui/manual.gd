@@ -1,25 +1,57 @@
 extends Control
 
-@onready var page_1_2: HBoxContainer = $"VBoxContainer/Control/Page1-2"
-@onready var page_3_4: HBoxContainer = $"VBoxContainer/Control/Page3-4"
+var pages = []
+var current_page_index = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_next_page_pressed() -> void:
-	if page_1_2.visible == true:
-		page_1_2.visible = false
-		page_3_4.visible = true
-
+func _ready():
+	# Initialize the pages array with your page nodes
+	# Ensure that the node paths are correct
+	pages = [
+		$"VBoxContainer/Control/Page1-2",
+		$"VBoxContainer/Control/Page3-4",
+		$"VBoxContainer/Control/Page5-6",
+		$"VBoxContainer/Control/Page7-8",
+		$"VBoxContainer/Control/Page9-10",
+		$"VBoxContainer/Control/Page11-12"
+	]
+	
+	# Debug: Print the number of pages loaded
+	print("Total pages loaded: ", pages.size())
+	
+	# Verify that all pages are valid
+	for i in range(pages.size()):
+		if pages[i] == null:
+			print("Error: Page ", i+1, " is null. Check the node path.")
+		else:
+			pages[i].visible = (i == current_page_index)
+			print("Page ", i+1, " visibility set to ", pages[i].visible)
 
 func _on_previous_page_pressed() -> void:
-	if page_3_4.visible == true:
-		page_1_2.visible = true
-		page_3_4.visible = false
+	if current_page_index > 0:
+		pages[current_page_index].visible = false
+		print("Hiding page ", current_page_index + 1)
+		current_page_index -= 1
+		pages[current_page_index].visible = true
+		print("Showing page ", current_page_index + 1)
+	else:
+		print("Already on the first page.")
+
+func _on_next_page_pressed() -> void:
+	if current_page_index < pages.size() - 1:
+		pages[current_page_index].visible = false
+		print("Hiding page ", current_page_index + 1)
+		current_page_index += 1
+		pages[current_page_index].visible = true
+		print("Showing page ", current_page_index + 1)
+	else:
+		print("You are on the last page.")
+
+func _on_index_pressed() -> void:
+	if current_page_index != 0:
+		pages[current_page_index].visible = false  # Hide current page
+		print("Hiding page ", current_page_index + 1)
+		current_page_index = 0  # Set index to first page
+		pages[current_page_index].visible = true  # Show first page
+		print("Showing page ", current_page_index + 1)
+	else:
+		print("Already on the first page.")
