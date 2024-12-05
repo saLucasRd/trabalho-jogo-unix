@@ -76,6 +76,8 @@ func _on_gui_input(event: InputEvent) -> void:
 					update_caret("-")
 				KEY_SLASH:
 					update_caret("/")
+				KEY_BACKSLASH:
+					update_caret("\\")
 		if event.shift_pressed:
 			match event.keycode:
 				KEY_BACKSLASH:
