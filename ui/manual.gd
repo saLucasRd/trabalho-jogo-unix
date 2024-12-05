@@ -4,8 +4,6 @@ var pages = []
 var current_page_index = 0
 
 func _ready():
-	# Initialize the pages array with your page nodes
-	# Ensure that the node paths are correct
 	pages = [
 		$"VBoxContainer/Control/Page1-2",
 		$"VBoxContainer/Control/Page3-4",
@@ -15,7 +13,6 @@ func _ready():
 		$"VBoxContainer/Control/Page11-12"
 	]
 	
-	# Debug: Print the number of pages loaded
 	print("Total pages loaded: ", pages.size())
 	
 	# Verify that all pages are valid
@@ -48,10 +45,10 @@ func _on_next_page_pressed() -> void:
 
 func _on_index_pressed() -> void:
 	if current_page_index != 0:
-		pages[current_page_index].visible = false  # Hide current page
+		pages[current_page_index].visible = false  
 		print("Hiding page ", current_page_index + 1)
-		current_page_index = 0  # Set index to first page
-		pages[current_page_index].visible = true  # Show first page
+		current_page_index = 0
+		pages[current_page_index].visible = true
 		print("Showing page ", current_page_index + 1)
 	else:
 		print("Already on the first page.")
