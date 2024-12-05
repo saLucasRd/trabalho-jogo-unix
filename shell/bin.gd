@@ -64,10 +64,9 @@ static func pwd_bin(args: Array, is_pipe: bool, previous_command: String) -> Com
 
 static func cat_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	if args.size() > 0:
-		var output = "CONTEÚDO DO ARQUIVO " + args[0] + "\nEXEMPLO DE TEXTO NO ARQUIVO.\n"
-		return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
+		return CommandResult.new(vfs.read_from(args[0]), CommandResult.TerminationStatus.EXIT_SUCCESS)
 	else:
-		return CommandResult.new("ERRO: NENHUM ARQUIVO ESPECIFICADO.\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+		return CommandResult.new("DSH: CAT: NO FILE SPECIFIED\n", CommandResult.TerminationStatus.EXIT_FAILURE)
 
 static func sort_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	# Simulação do comando LS

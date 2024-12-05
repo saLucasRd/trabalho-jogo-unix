@@ -24,10 +24,8 @@ func instatentiate_window(resource: PackedScene) -> void:
 	var thing := resource.instantiate()
 	window.get_node("VBoxContainer/Content").add_child(thing)
 	thing.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
-	window.gui_input.connect(func (event: InputEvent):
-		if event is InputEventMouseButton and event.pressed:
-			desktop_area.move_child(window, desktop_area.get_child_count() - 1)
-		)
+	window.got_focus.connect(func(): desktop_area.move_child(window, desktop_area.get_child_count() - 1))
+
 	desktop_area.add_child(window)
 	thing.grab_focus()
 
