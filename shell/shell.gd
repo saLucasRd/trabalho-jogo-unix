@@ -8,14 +8,13 @@ func _init() -> void:
 	vsf = VirtualFileSystem.new(level_path)
 
 
-
 func execute(commands: String) -> CommandResult:
 	var prepared_commands = prepare_commands(commands)
 	var commands_exist := check_commands(prepared_commands)
 	if commands_exist.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		return commands_exist
 
-	var previous_command: CommandResult = CommandResult.new("", CommandResult.TerminationStatus.EXIT_SUCCESS)
+	var previous_command := CommandResult.new("", CommandResult.TerminationStatus.EXIT_SUCCESS)
 	for i in range(prepared_commands.size()):
 		if previous_command.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 			return previous_command
@@ -23,7 +22,8 @@ func execute(commands: String) -> CommandResult:
 		var args = prepared_commands[i].slice(1, prepared_commands[i].size())
 		var is_pipe = (i > 0)  # Only set is_pipe to true if this is not the first command
 		
-		previous_command = bin.bin_dict[command_name].call(args, is_pipe, previous_command)
+		previous_command = bin.bin_dict[command_name].call(args, is_pipe, previous_command.output)
+		print(is_pipe)
 	
 	return previous_command
 

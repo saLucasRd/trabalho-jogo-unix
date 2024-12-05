@@ -14,7 +14,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta: _float) -> void:
 	datetime.text = Time.get_datetime_string_from_system(false, true)
 
 
