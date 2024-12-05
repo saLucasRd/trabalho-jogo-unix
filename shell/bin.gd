@@ -1,5 +1,8 @@
 extends Node
 
+static var level_path := "res://level/"
+static var vfs: VirtualFileSystem = VirtualFileSystem.new(level_path)
+
 static var bin_dict := {
 	"MAN": man_bin,
 	"LS": ls_bin,
@@ -47,8 +50,10 @@ static func cut_bin(args: Array, is_pipe: bool, previous_command: String) -> Com
 
 static func cd_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	# Simulação do comando CD
+	
 	if args.size() > 0:
 		var dir = args[0]
+		vfs.navigate_to(dir)
 		return CommandResult.new("DIR CHANGED TO: \n" + dir, CommandResult.TerminationStatus.EXIT_SUCCESS)
 	else:
 		return CommandResult.new("ERROR: NO DIR ESPECIFIED.\n", CommandResult.TerminationStatus.EXIT_FAILURE)

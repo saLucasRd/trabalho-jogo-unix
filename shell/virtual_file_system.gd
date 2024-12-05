@@ -3,7 +3,7 @@ extends Node
 
 var level_path: String
 var file_system: File
-var current_dir = "/"
+var current_dir: File
 
 
 class File:
@@ -60,7 +60,9 @@ func _print_tree(node: File, depth: int = 0) -> String:
 
 
 func navigate_to(path: String):
-	pass
+	var split_path := path.simplify_path().split("/")
+	print(split_path)
+
 
 
 func read_from(path: String):

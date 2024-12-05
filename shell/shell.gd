@@ -1,11 +1,7 @@
 class_name Shell
 extends Node
 
-@export var level_path := "res://level/level1_root"
-@onready var vsf: VirtualFileSystem = VirtualFileSystem.new(level_path)
 const bin := preload("res://shell/bin.gd")
-func _init() -> void:
-	vsf = VirtualFileSystem.new(level_path)
 
 
 func execute(commands: String) -> CommandResult:

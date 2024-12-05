@@ -25,12 +25,15 @@ func _on_bar_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# Start dragging on left mouse button press
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			mouse_default_cursor_shape = CursorShape.CURSOR_DRAG
 			is_left_dragging = true
 			drag_offset = event.position
 		elif event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 			is_left_dragging = false
 	elif event is InputEventMouseMotion and is_left_dragging:
 		# Dragging logic
+		
 		position += event.relative
 
 
@@ -41,5 +44,9 @@ func _on_close_pressed() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			print(event.position)
-			print($VBoxContainer.size)
+			var direita:bool = event.position.x >= size.x / 2
+			var cima:bool = event.position.y <= size.y / 2
+			print(direita, cima)
+			
+			
+			
