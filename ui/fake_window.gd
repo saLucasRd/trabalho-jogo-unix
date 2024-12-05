@@ -3,9 +3,17 @@ extends Control
 @onready var bar: ColorRect = $VBoxContainer/HBoxContainer/Bar
 @onready var close: TextureButton = $VBoxContainer/HBoxContainer/Close
 
+enum Q {
+	Q1,
+	Q2,
+	Q3,
+	Q4,
+}
+
 
 # Tracks if the window is being dragged
 var is_left_dragging: bool = false
+var is_right_dragging: bool = false
 var drag_offset: Vector2
 
 func _ready() -> void:

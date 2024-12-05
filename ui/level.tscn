@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwq1mdvnentq5"]
+[gd_scene load_steps=7 format=3 uid="uid://dwq1mdvnentq5"]
 
 [ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="1_m123p"]
 [ext_resource type="Texture2D" uid="uid://bv8u762vxgqlq" path="res://assets/image/file.png" id="1_qdplc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la0yo"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db4pk"]
 bg_color = Color(0, 0, 0, 1)
@@ -14,18 +17,30 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="Level" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 240.0
-offset_bottom = 93.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_la0yo")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_direction = 1
-layout_mode = 0
-offset_right = 232.0
-offset_bottom = 93.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GridContainer2" type="GridContainer" parent="VBoxContainer2"]
 layout_mode = 2
@@ -55,11 +70,7 @@ texture = ExtResource("1_qdplc")
 layout_mode = 2
 texture = ExtResource("1_qdplc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_filter = 1
@@ -67,7 +78,7 @@ theme_override_fonts/normal_font = ExtResource("1_m123p")
 bbcode_enabled = true
 text = "Liste todos as extensoes de arquivo do diretorio atual [color=green]unicamente[/color] e [color=blue]em ordem alfabetica[/color]"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer2/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer2"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_m123p")
