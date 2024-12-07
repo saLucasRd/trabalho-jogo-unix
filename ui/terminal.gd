@@ -46,18 +46,26 @@ func scroll_to_bottom():
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
-		if Input.is_key_pressed(KEY_CTRL) and event.keycode == KEY_C:
-			update_caret("^C")
-			remove_last_caret()
-			self.text += "\n"
+		if Input.is_key_pressed(KEY_CTRL):
+			match event.keycode:
+				KEY_C:
+					update_caret("^C")
+					remove_last_caret()
+					self.text += "\n"
+					prepare_prompt()
+				KEY_L:
+					self.clear()
+					prepare_prompt()
+					
+			
 
-			prepare_prompt()
 		if event.shift_pressed:
 			match event.keycode:
 				KEY_BACKSLASH:
 					update_caret("|")
 				KEY_MINUS:
 					update_caret("_")
+
 		if !event.shift_pressed and !Input.is_key_pressed(KEY_CTRL):
 			if event.keycode == clamp(event.keycode, 64, 90) or event.keycode == clamp(event.keycode, 48, 57):
 				update_caret(OS.get_keycode_string(event.keycode))
@@ -89,6 +97,6 @@ func _on_gui_input(event: InputEvent) -> void:
 					update_caret("/")
 				KEY_BACKSLASH:
 					update_caret("\\")
-		
+
 		limit_text()
 		scroll_to_bottom()
