@@ -5,7 +5,7 @@ const WINDOW = preload("res://ui/fake_window.tscn")
 const TERMINAL = preload("res://ui/terminal.tscn")
 const MANUAL = preload("res://ui/manual.tscn")
 const LEVEL = preload("res://ui/level.tscn")
-const SHOP = preload("res://ui/shop.tscn")
+const GAME = preload("res://games/space.tscn")
 
 @onready var desktop_area: Control = $DesktopArea
 @onready var datetime: Label = $HBoxContainer/Datetime
@@ -47,6 +47,5 @@ func _on_turn_off_button_pressed() -> void:
 func _on_level_1_app_pressed() -> void:
 	instatentiate_window(LEVEL)
 
-
-func _on_shop_app_pressed() -> void:
-	instatentiate_window(SHOP)
+func _on_game_pressed() -> void:
+	instatentiate_window(GAME)
