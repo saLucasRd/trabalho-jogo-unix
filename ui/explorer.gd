@@ -11,4 +11,3 @@ func _on_level_1_pressed() -> void:
 	if scene_to_instance:
 		var new_scene = scene_to_instance.instantiate()
 		add_child(new_scene)
-		
