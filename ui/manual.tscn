@@ -136,7 +136,13 @@ digite isso na linha de comando:
 
 $ LS | COWSAY
 
-depois digite enter."
+depois digite enter.
+
+Voce pode usar esse mecanismo de pipeline com quantos programas voce quiser:
+
+$ ECHO 1 2 3 | GREP 2 | COWSAY
+
+no exemplo acima é usado 3 comandos em um pipeline."
 
 [node name="Tutorial2" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -145,11 +151,12 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "Voce pode usar esse mecanismo de pipeline com quantos programas voce quiser:
+text = "Para resolver os niveis vc precisa ir para o diretorio de cada nivel atraves do terminal. 
 
-$ ECHO 1 2 3 | GREP 2 | COWSAY
+como por exemplo:
+$ CD LEVEL1/ 
 
-no exemplo acima é usado 3 comandos em um pipeline."
+Porem o comando de resposta da pergunta deve ser enviado na caixa de texto do file explorer."
 
 [node name="Tutorial3" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
