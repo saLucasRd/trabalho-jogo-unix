@@ -20,7 +20,7 @@ static var bin_dict := {
 
 static func man_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	return CommandResult.new(
-"NÃO TEM \'MAN\', LEIA O LIVRO!\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
+"NÃO TEM \'MAN\', LEIA O LIVRO!\n", CommandResult.TerminationStatus.EXIT_FAILURE)
 
 static func ls_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	var output: Array[String] = []
