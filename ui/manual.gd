@@ -31,3 +31,11 @@ func _on_index_pressed() -> void:
 		current_page_index = 0
 		pages[current_page_index].visible = true
 		pages[current_page_index + 1].visible = true
+
+
+func _on_comandos_btn_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_tutorial_btn_pressed() -> void:
+	pass # Replace with function body.

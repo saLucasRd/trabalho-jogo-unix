@@ -37,15 +37,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xdu4t")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.058
-anchor_top = 0.022
-anchor_right = 0.942
-anchor_bottom = 0.925
-offset_left = -0.00200033
-offset_top = 12.72
-offset_right = 0.0019989
-offset_bottom = -99.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
