@@ -401,7 +401,7 @@ mouse_filter = 1
 texture_normal = ExtResource("3_j3jhl")
 
 [node name="Click002" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(-51, 168)
+position = Vector2(1, 0)
 stream = ExtResource("6_qsrrc")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Comandos_btn" to="." method="_on_comandos_btn_pressed"]
