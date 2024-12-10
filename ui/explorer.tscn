@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpif54l7brgbh"]
+
+[ext_resource type="Script" path="res://ui/explorer.gd" id="1_xksi3"]
+[ext_resource type="PackedScene" uid="uid://dwq1mdvnentq5" path="res://ui/level.tscn" id="2_2gg6y"]
+[ext_resource type="Texture2D" uid="uid://cbyxaoorcmv7o" path="res://assets/image/level1.png" id="2_roiiw"]
+[ext_resource type="Texture2D" uid="uid://b4ttkj7bq5wud" path="res://assets/image/level2.png" id="3_qyexw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdu4t"]
+bg_color = Color(0.103744, 0.103744, 0.103743, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adilw"]
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="Theme" id="Theme_v3uct"]
+
+[node name="Explorer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xksi3")
+scene_to_instance = ExtResource("2_2gg6y")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.216
+anchor_bottom = 0.996
+offset_left = 1.0
+offset_right = -0.120003
+offset_bottom = -0.0400085
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdu4t")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.219
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.0800018
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_adilw")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.079
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+theme = SubResource("Theme_v3uct")
+columns = 3
+
+[node name="Level1" type="TextureButton" parent="Panel/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_roiiw")
+
+[node name="Level2" type="TextureButton" parent="Panel/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_qyexw")
+
+[connection signal="pressed" from="Panel/GridContainer/Level1" to="." method="_on_level_1_pressed"]

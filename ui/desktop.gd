@@ -1,10 +1,9 @@
 extends Control
 
-
 const WINDOW = preload("res://ui/fake_window.tscn")
 const TERMINAL = preload("res://ui/terminal.tscn")
 const MANUAL = preload("res://ui/manual.tscn")
-const LEVEL = preload("res://ui/level.tscn")
+const EXPLORER = preload("res://ui/explorer.tscn")
 const GAME = preload("res://games/space.tscn")
 
 @onready var desktop_area: Control = $DesktopArea
@@ -18,7 +17,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	datetime.text = Time.get_datetime_string_from_system(false, true)
 
-
 func instatentiate_window(resource: PackedScene) -> void:
 	var window := WINDOW.instantiate()
 	var thing := resource.instantiate()
@@ -29,23 +27,19 @@ func instatentiate_window(resource: PackedScene) -> void:
 	desktop_area.add_child(window)
 	thing.grab_focus()
 
-
 func _on_terminal_app_pressed() -> void:
 	instatentiate_window(TERMINAL)
-
 
 func _on_man_button_pressed() -> void:
 	if tutorial_label != null:
 		tutorial_label.queue_free()
 	instatentiate_window(MANUAL)
 
-
 func _on_turn_off_button_pressed() -> void:
 	get_tree().quit()
 
-
-func _on_level_1_app_pressed() -> void:
-	instatentiate_window(LEVEL)
-
 func _on_game_pressed() -> void:
 	instatentiate_window(GAME)
+
+func _on_explorer_app_pressed() -> void:
+	instatentiate_window(EXPLORER)

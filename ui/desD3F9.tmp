@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://lph1o4dijnjc"]
+[gd_scene load_steps=14 format=3 uid="uid://lph1o4dijnjc"]
 
 [ext_resource type="Script" path="res://ui/desktop.gd" id="1_pnges"]
 [ext_resource type="Texture2D" uid="uid://d36xin7oghlxn" path="res://assets/image/desktop.png" id="2_174vh"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dswps1iu1gws1" path="res://assets/image/manual.png" id="4_ransu"]
 [ext_resource type="Texture2D" uid="uid://cji2agsyaiiwi" path="res://assets/image/terminal.png" id="5_8xua1"]
 [ext_resource type="Texture2D" uid="uid://cndjw3vt3fk7d" path="res://assets/image/dir.png" id="6_gitft"]
+[ext_resource type="Texture2D" uid="uid://cbyxaoorcmv7o" path="res://assets/image/level1.png" id="6_jtde1"]
+[ext_resource type="Texture2D" uid="uid://b4ttkj7bq5wud" path="res://assets/image/level2.png" id="7_phh2m"]
 [ext_resource type="Texture2D" uid="uid://dlm4t8qfbnlfg" path="res://assets/image/turn_off.png" id="8_esllx"]
 [ext_resource type="Texture2D" uid="uid://05k85yyyk7u4" path="res://assets/image/ufo.png" id="8_l5eyr"]
 [ext_resource type="Shader" path="res://ui/crt.gdshader" id="9_mkkfc"]
@@ -87,6 +89,18 @@ texture_normal = ExtResource("5_8xua1")
 layout_mode = 2
 texture_normal = ExtResource("6_gitft")
 
+[node name="Level1App" type="TextureButton" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("6_jtde1")
+
+[node name="Level2App" type="TextureButton" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("7_phh2m")
+
 [node name="game" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_l5eyr")
@@ -119,5 +133,6 @@ mesh = SubResource("QuadMesh_tc6kc")
 [connection signal="pressed" from="VBoxContainer/ManButton" to="." method="_on_man_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/TerminalApp" to="." method="_on_terminal_app_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExplorerApp" to="." method="_on_explorer_app_pressed"]
+[connection signal="pressed" from="VBoxContainer/Level1App" to="." method="_on_level_1_app_pressed"]
 [connection signal="pressed" from="VBoxContainer/game" to="." method="_on_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/TurnOffButton" to="." method="_on_turn_off_button_pressed"]
