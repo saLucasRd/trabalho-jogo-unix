@@ -323,6 +323,17 @@ text = "ඞ
 
 "
 
+[node name="Page13" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "ඞ
+
+"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 

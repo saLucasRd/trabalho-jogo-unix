@@ -12,7 +12,7 @@ class File:
 	var content: String
 	var is_dir: bool
 	var links: Array[File]
-	var parent: File = null  # Added parent reference for easier navigation
+	var parent: File = null  # Referência para o pai
 
 	func _init(_file_name: String, _content: String, _is_dir: bool, _links: Array[File], _parent: File = null):
 		self.file_name = _file_name
@@ -27,7 +27,7 @@ func _init(_level_path: String):
 	self.file_system = _build_fs(level_path, null)
 	file_system.file_name = "root"
 	current_dir_string = "/"
-	self.current_dir = file_system  # Set current directory to root initially
+	self.current_dir = file_system  # Diretório inicial é o root
 	print(_print_tree(file_system))
 
 
@@ -69,20 +69,19 @@ func navigate_to(path: String) -> bool:
 		current_dir_string = "/"
 		current_dir = file_system
 		return true
-	var simple_path := path.simplify_path()
-	var absolute := simple_path.is_absolute_path()
-	var split_path := simple_path.substr(1).split("/") if absolute else simple_path.split("/")
+	var absolute := path.is_absolute_path()
+	var split_path := path.substr(1).split("/") if absolute else path.split("/")
 	var target_dir: File
 
 	if absolute:
-		# Start navigation from the root if the path is absolute
+		# Navegar a partir do root
 		target_dir = _get_dir_from_root(split_path)
-		current_dir_string = "/" + "/".join(split_path)
+		current_dir_string = ("/" + "/".join(split_path)).simplify_path()
 	else:
-		# Start navigation from the current directory
+		# Navegar a partir do diretório atual
 		target_dir = _get_dir_from_current(split_path)
 		if target_dir != null:
-			current_dir_string = current_dir_string.path_join(path)
+			current_dir_string = current_dir_string.path_join(path).simplify_path()
 
 	if target_dir != null:
 		current_dir = target_dir
@@ -90,7 +89,6 @@ func navigate_to(path: String) -> bool:
 
 	print("Error: Directory not found: ", path)
 	return false
-
 
 
 func _get_dir_from_root(path: Array[String]) -> File:
@@ -108,7 +106,7 @@ func _traverse_path(node: File, path: Array[String]) -> File:
 		if part == ".":
 			continue
 		elif part == "..":
-			# Navigate to parent directory
+			# Ir para o diretório pai
 			if node.parent != null:
 				node = node.parent
 			else:
@@ -116,7 +114,7 @@ func _traverse_path(node: File, path: Array[String]) -> File:
 		else:
 			var found = false
 			for link in node.links:
-				if link.file_name == part and link.is_dir:
+				if link.file_name == part:
 					node = link
 					found = true
 					break
@@ -126,9 +124,8 @@ func _traverse_path(node: File, path: Array[String]) -> File:
 
 
 func read_from(path: String) -> String:
-	var simple_path := path.simplify_path()
-	var absolute := simple_path.is_absolute_path()
-	var split_path := simple_path.substr(1).split("/") if absolute else simple_path.split("/")
+	var absolute := path.is_absolute_path()
+	var split_path := path.substr(1).split("/") if absolute else path.split("/")
 	var target_file: File
 	
 	if absolute:
@@ -141,6 +138,26 @@ func read_from(path: String) -> String:
 	
 	print("Error: File not found or is a directory: ", path)
 	return ""
+
+
+func list_dir(path: String) -> Array[String]:
+	var absolute := path.is_absolute_path()
+	var split_path := path.substr(1).split("/") if absolute else path.split("/")
+	var target_dir: File
+	
+	if absolute:
+		target_dir = _get_dir_from_root(split_path)
+	else:
+		target_dir = _get_dir_from_current(split_path)
+	
+	if target_dir and target_dir.is_dir:
+		var result: Array[String] = []
+		for link in target_dir.links:
+			result.append(link.file_name + ("/" if link.is_dir else ""))
+		return result
+	
+	print("Error: Directory not found or is not a directory: ", path)
+	return []
 
 
 func list_current_dir() -> Array[String]:
