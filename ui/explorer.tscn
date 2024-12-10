@@ -20,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_xksi3")
 scene_to_instance = ExtResource("2_2gg6y")
 
@@ -30,6 +31,7 @@ anchor_right = 0.216
 anchor_bottom = 0.996
 offset_right = -0.120003
 offset_bottom = 0.960007
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_xdu4t")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
@@ -48,6 +50,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Panel2/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("3_lwm77")
 theme_override_font_sizes/font_size = 16
 text = "LEVELS"
@@ -62,11 +65,13 @@ alignment = 1
 
 [node name="Level1" type="TextureButton" parent="Panel2/VBoxContainer/Level1Container"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("2_roiiw")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel2/VBoxContainer/Level1Container"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 border_color = Color(1, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Panel2/VBoxContainer/Level1Container"]
@@ -78,6 +83,7 @@ texture = ExtResource("4_db4xq")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="Level2Container" type="HBoxContainer" parent="Panel2/VBoxContainer"]
 layout_mode = 2
@@ -86,11 +92,13 @@ alignment = 1
 
 [node name="Level2" type="TextureButton" parent="Panel2/VBoxContainer/Level2Container"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("3_qyexw")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel2/VBoxContainer/Level2Container"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 border_color = Color(1, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Panel2/VBoxContainer/Level2Container"]
@@ -102,6 +110,7 @@ texture = ExtResource("4_db4xq")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="Level3Container" type="HBoxContainer" parent="Panel2/VBoxContainer"]
 layout_mode = 2
@@ -110,11 +119,13 @@ alignment = 1
 
 [node name="Level3" type="TextureButton" parent="Panel2/VBoxContainer/Level3Container"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("3_qyexw")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel2/VBoxContainer/Level3Container"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 border_color = Color(1, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Panel2/VBoxContainer/Level3Container"]
@@ -126,6 +137,7 @@ texture = ExtResource("4_db4xq")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="Level4Container" type="HBoxContainer" parent="Panel2/VBoxContainer"]
 layout_mode = 2
@@ -134,11 +146,13 @@ alignment = 1
 
 [node name="Level4" type="TextureButton" parent="Panel2/VBoxContainer/Level4Container"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("3_qyexw")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel2/VBoxContainer/Level4Container"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 border_color = Color(1, 0, 0, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Panel2/VBoxContainer/Level4Container"]
@@ -155,6 +169,7 @@ anchor_bottom = 1.0
 offset_left = -1.08
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_adilw")
 
 [connection signal="pressed" from="Panel2/VBoxContainer/Level1Container/Level1" to="." method="_on_level_1_pressed"]

@@ -48,9 +48,6 @@ func _on_gui_input(event: InputEvent) -> void:
 			var direita:bool = event.position.x >= size.x / 2
 			var cima:bool = event.position.y <= size.y / 2
 			print(direita, cima)
-			
-			
-			
 
 
 func _on_close_finished() -> void:
