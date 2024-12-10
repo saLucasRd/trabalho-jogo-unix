@@ -14,7 +14,6 @@ signal win
 
 
 func _ready():
-	sh.execute("CD " + level_name)
 	question_label.text = question
 
 func _on_button_pressed() -> void:
