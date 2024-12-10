@@ -85,10 +85,12 @@ texture_normal = ExtResource("5_8xua1")
 
 [node name="ExplorerApp" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("6_gitft")
 
 [node name="game" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("8_l5eyr")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer"]
