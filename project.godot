@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=320
 window/size/viewport_height=240
+window/size/mode=2
 window/stretch/mode="viewport"
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 

@@ -44,6 +44,7 @@ grow_vertical = 2
 
 [node name="GridContainer2" type="GridContainer" parent="VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
 columns = 4
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
@@ -73,6 +74,7 @@ texture = ExtResource("1_qdplc")
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("1_m123p")
 bbcode_enabled = true
