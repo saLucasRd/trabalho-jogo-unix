@@ -158,6 +158,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_adilw")
 
 [connection signal="pressed" from="Panel2/VBoxContainer/Level1Container/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="Panel2/VBoxContainer/Level2Container/Level2" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="Panel2/VBoxContainer/Level3Container/Level3" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/Level2Container/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/Level3Container/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="Panel2/VBoxContainer/Level4Container/Level4" to="." method="_on_level_1_pressed"]
