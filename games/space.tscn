@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc4x45cadsvps"]
+[gd_scene load_steps=6 format=3 uid="uid://cc4x45cadsvps"]
 
 [ext_resource type="Script" path="res://games/player.gd" id="1_74pqc"]
+[ext_resource type="Script" path="res://games/space.gd" id="1_nafhp"]
 [ext_resource type="Texture2D" uid="uid://05k85yyyk7u4" path="res://assets/image/ufo.png" id="2_3skmx"]
+[ext_resource type="PackedScene" uid="uid://b1m8ubns67vhf" path="res://games/asteroid.tscn" id="4_pdhma"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1c6n4"]
 radius = 1.59982
@@ -9,27 +11,32 @@ height = 6.37946
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Asteroid" parent="." instance=ExtResource("4_pdhma")]
 
 [node name="Space" type="Node2D" parent="."]
-position = Vector2(147, 115)
+script = ExtResource("1_nafhp")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(161, 107)
 scale = Vector2(5, 5)
 script = ExtResource("1_74pqc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(-7.15256e-07, -9.53674e-07)
+position = Vector2(7.59959e-07, 1.14739e-06)
 scale = Vector2(0.632031, 0.632031)
 texture = ExtResource("2_3skmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 0.6)
+position = Vector2(2.86102e-06, 0.599999)
 rotation = 1.57171
 scale = Vector2(-1.57607, 1.00322)
 shape = SubResource("CapsuleShape2D_1c6n4")
 
 [node name="Node2D" type="Node2D" parent="Player"]
-position = Vector2(-1.3113e-06, 0)
+position = Vector2(5.8, 0.800003)

@@ -89,7 +89,6 @@ focus_mode = 0
 texture_normal = ExtResource("6_gitft")
 
 [node name="game" type="TextureButton" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("8_l5eyr")
