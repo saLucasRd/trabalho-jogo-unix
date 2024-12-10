@@ -64,7 +64,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="Nothing" type="RichTextLabel" parent="VBoxContainer/Content"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -72,7 +71,6 @@ theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 
 [node name="Cover" type="RichTextLabel" parent="VBoxContainer/Content"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -306,6 +304,7 @@ Examples:
 SORT"
 
 [node name="Page8" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -324,21 +323,24 @@ Exemplos:
 UNIQ"
 
 [node name="Page9" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "xargs
+text = "XARGS
+(PIPELINE É NECESSÁRIO)
 
-Description: Builds and executes commands from standard input.
+Descrição: 
+Separa linhas de um comando anterior e passa essas linhas para outro comando
 
-Syntax:
-xargs [command]
+Sintaxe:
+XARGS <comando>
 
-Examples:
-echo \"file1 file2\" | xargs rm
-cat command_list.txt | xargs sh -c"
+Exemplos:
+LS | XARGS LS
+CAT ARQUIVO.TXT | COWSAY"
 
 [node name="Page10" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -347,41 +349,19 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "cowsay
+text = "COWSAY
 
-Description:
-Displays a message as a cow in ASCII art.
+Descrição:
+Manda os argumentos passados para uma vaca falante. 
 
-Syntax:
-cowsay MESSAGE
+Sintaxe:
+COWSAY MENSAGEM...
 
-Examples:
-cow say \"Hello, world!\"
-cow say \"I'm a talking cow!\""
+Exemplos:
+COWSAY HELLO WORLD
+COWSAY BOM DIA"
 
 [node name="Page11" type="RichTextLabel" parent="VBoxContainer/Content"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("3_pdf6c")
-bbcode_enabled = true
-text = "ඞ
-
-"
-
-[node name="Page12" type="RichTextLabel" parent="VBoxContainer/Content"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("3_pdf6c")
-bbcode_enabled = true
-text = "ඞ
-
-"
-
-[node name="Page13" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
