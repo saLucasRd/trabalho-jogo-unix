@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://df5s3rqpviio2"]
 
-[ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="1_yfm77"]
+[ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="1_02h2c"]
 [ext_resource type="Script" path="res://ui/terminal.gd" id="2_pipvy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajvho"]
@@ -20,7 +20,7 @@ size_flags_vertical = 3
 mouse_default_cursor_shape = 0
 theme_override_colors/font_readonly_color = Color(0.741176, 0.717647, 0.654902, 1)
 theme_override_constants/line_spacing = -4
-theme_override_fonts/font = ExtResource("1_yfm77")
+theme_override_fonts/font = ExtResource("1_02h2c")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajvho")
 theme_override_styles/focus = SubResource("StyleBoxFlat_n0mn6")

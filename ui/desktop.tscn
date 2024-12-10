@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/desktop.gd" id="1_pnges"]
 [ext_resource type="Texture2D" uid="uid://d36xin7oghlxn" path="res://assets/image/desktop.png" id="2_174vh"]
-[ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="3_3akdl"]
+[ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="3_gxpbl"]
 [ext_resource type="Texture2D" uid="uid://dswps1iu1gws1" path="res://assets/image/manual.png" id="4_ransu"]
 [ext_resource type="Texture2D" uid="uid://cji2agsyaiiwi" path="res://assets/image/terminal.png" id="5_8xua1"]
 [ext_resource type="Texture2D" uid="uid://cndjw3vt3fk7d" path="res://assets/image/dir.png" id="6_gitft"]
@@ -44,7 +44,7 @@ offset_left = 17.0
 offset_top = 16.0
 offset_right = 73.0
 offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("3_3akdl")
+theme_override_fonts/font = ExtResource("3_gxpbl")
 text = "<- tutorial!!!!!!! :)"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -59,7 +59,7 @@ grow_vertical = 2
 [node name="Datetime" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_fonts/font = ExtResource("3_3akdl")
+theme_override_fonts/font = ExtResource("3_gxpbl")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
