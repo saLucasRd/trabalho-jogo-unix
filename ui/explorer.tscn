@@ -161,7 +161,7 @@ visible = false
 layout_mode = 2
 texture = ExtResource("4_db4xq")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="LevelPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.219
@@ -173,15 +173,15 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_adilw")
 
-[node name="Level1" parent="Panel" instance=ExtResource("2_2gg6y")]
+[node name="Level1" parent="LevelPanel" instance=ExtResource("2_2gg6y")]
 visible = false
 layout_mode = 1
 
-[node name="Level2" parent="Panel" instance=ExtResource("7_e7klv")]
+[node name="Level2" parent="LevelPanel" instance=ExtResource("7_e7klv")]
 visible = false
 layout_mode = 1
 
-[node name="Level3" parent="Panel" instance=ExtResource("8_p104l")]
+[node name="Level3" parent="LevelPanel" instance=ExtResource("8_p104l")]
 visible = false
 layout_mode = 1
 

@@ -2,12 +2,7 @@ extends Control
 
 @export var levels: Array[Node]
 
-@onready var level_panels = $Panel.get_children()
-
-@onready var level_1_panel = $Panel/Level1
-@onready var level_2_panel = $Panel/Level2
-@onready var level_3_panel = $Panel/Level3
-#@onready var level_4_panel = $Panel/Level
+@onready var level_panels = $LevelPanel.get_children()
 
 # Aux Functions
 func _toggle_visibility(node: Node) -> void:
@@ -15,23 +10,23 @@ func _toggle_visibility(node: Node) -> void:
 
 func hide_all_levels() -> void:
 	for level_panel in level_panels:
-		_toggle_visibility(level_panel)
+		level_panel.visible = false
 
 
 func _on_level_1_pressed() -> void:
 	hide_all_levels()
 	print("1")
-	_toggle_visibility(level_1_panel)
+	_toggle_visibility(level_panels[0])
 
 func _on_level_2_pressed() -> void:
 	hide_all_levels()
 	print("2")
-	_toggle_visibility(level_2_panel)
+	_toggle_visibility(level_panels[1])
 
 func _on_level_3_pressed() -> void:
 	hide_all_levels()
 	print("3")
-	_toggle_visibility(level_3_panel)
+	_toggle_visibility(level_panels[2])
 
 func _on_level_4_pressed() -> void:
 	pass # Replace with function body.
