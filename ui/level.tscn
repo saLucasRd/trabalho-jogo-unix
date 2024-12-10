@@ -57,6 +57,8 @@ layout_mode = 2
 
 [node name="Error" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_agay0")
+text = "asasdasd"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2

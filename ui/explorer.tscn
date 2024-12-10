@@ -155,6 +155,14 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Level3" parent="LevelPanel" instance=ExtResource("2_2gg6y")]
+visible = false
+layout_mode = 1
+
+[node name="Level4" parent="LevelPanel" instance=ExtResource("2_2gg6y")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="Panel2/VBoxContainer/Level1Container/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Panel2/VBoxContainer/Level2Container/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="Panel2/VBoxContainer/Level3Container/Level3" to="." method="_on_level_3_pressed"]

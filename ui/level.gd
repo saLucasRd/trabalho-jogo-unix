@@ -7,8 +7,8 @@ extends Control
 signal win
 
 @onready var question_label: RichTextLabel = $VBoxContainer2/RichTextLabel
-@onready var answer_input: LineEdit = $VBoxContainer2/HBoxContainer/LineEdit
-@onready var submit_button: Button = $VBoxContainer2/HBoxContainer/Button
+@onready var answer_input: LineEdit = $VBoxContainer2/VBoxContainer/HBoxContainer/LineEdit
+@onready var submit_button: Button = $VBoxContainer2/VBoxContainer/HBoxContainer/Button
 @onready var error: Label = $VBoxContainer2/VBoxContainer/Error
 
 func _ready():
