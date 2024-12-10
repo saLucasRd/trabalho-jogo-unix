@@ -12,13 +12,12 @@ extends VBoxContainer
 
 enum STATE {
 	START,
-	OPTIONS,
 	EXIT,
 }
 
 
 var current_state := 0
-var states := [STATE.START, STATE.OPTIONS, STATE.EXIT]
+var states := [STATE.START, STATE.EXIT]
 
 
 func _ready() -> void:
@@ -34,17 +33,17 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	var states := [STATE.START, STATE.OPTIONS, STATE.EXIT]
+	var states := [STATE.START, STATE.EXIT]
 	if event is InputEventKey and event.pressed:
 		match event.keycode:
 			KEY_DOWN:
 				if current_state != len(states) - 1:
 					tick.play()
-					current_state = (current_state + 1) % 3
+					current_state = (current_state + 1) % 2
 			KEY_UP:
 				if current_state != 0:
 					tick.play()
-					current_state = (current_state - 1 + len(states)) % 3
+					current_state = (current_state - 1 + len(states)) % 2
 			KEY_ENTER:
 				handle_button(states[current_state])
 				
@@ -55,28 +54,19 @@ func handle_button(state: STATE):
 	match state:
 		STATE.START:
 			get_tree().change_scene_to_file("res://ui/intro.tscn")
-		STATE.OPTIONS:
-			$NaoImplementado.visible = true
-			error.play()
-			print("não implementado")
 		STATE.EXIT:
 			get_tree().quit()
 
 
 func update_labels(state: STATE):
 	start_label.label_settings = NOT_SELECTED
-	options_label.label_settings = NOT_SELECTED
 	exit_label.label_settings = NOT_SELECTED
 	start_label.remove_theme_stylebox_override("normal")
-	options_label.remove_theme_stylebox_override("normal")
 	exit_label.remove_theme_stylebox_override("normal")
 	match state:
 		STATE.START:
 			start_label.label_settings = SELECTED
 			start_label.add_theme_stylebox_override("normal", SELECTED_RECT)
-		STATE.OPTIONS:
-			options_label.label_settings = SELECTED
-			options_label.add_theme_stylebox_override("normal", SELECTED_RECT)
 		STATE.EXIT:
 			exit_label.label_settings = SELECTED
 			exit_label.add_theme_stylebox_override("normal", SELECTED_RECT)
