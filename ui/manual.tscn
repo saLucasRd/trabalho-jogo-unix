@@ -41,12 +41,12 @@ size_flags_horizontal = 8
 mouse_filter = 1
 texture_normal = ExtResource("4_5p56o")
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Content" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="Page1-2" type="HBoxContainer" parent="VBoxContainer/Control"]
+[node name="Page1-2" type="HBoxContainer" parent="VBoxContainer/Content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,18 +56,18 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Page1" type="RichTextLabel" parent="VBoxContainer/Control/Page1-2"]
+[node name="Page1" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "[color=red][font_size=32]The pseudo-unix
+text = "[color=yellow]The pseudo-unix
 admin manual
-[color= green][font_size=16]
+[color= green]
 by ludihan, donissac, fatkiwi"
 
-[node name="Page2" type="RichTextLabel" parent="VBoxContainer/Control/Page1-2"]
+[node name="Page2" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -81,17 +81,8 @@ text = "Summary
 4. uniq - xargs
 5. cowsay - ???"
 
-[node name="Page3-4" type="HBoxContainer" parent="VBoxContainer/Control"]
+[node name="Page3" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Page3" type="RichTextLabel" parent="VBoxContainer/Control/Page3-4"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -109,7 +100,8 @@ Examples:
 ls /home/user
 ls ."
 
-[node name="Page4" type="RichTextLabel" parent="VBoxContainer/Control/Page3-4"]
+[node name="Page4" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -127,17 +119,8 @@ Examples:
 cd /var/log
 cd ~"
 
-[node name="Page5-6" type="HBoxContainer" parent="VBoxContainer/Control"]
+[node name="Page5" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Page5" type="RichTextLabel" parent="VBoxContainer/Control/Page5-6"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -155,7 +138,8 @@ Examples:
 echo \"Hello, world!\"
 echo $HOME"
 
-[node name="Page6" type="RichTextLabel" parent="VBoxContainer/Control/Page5-6"]
+[node name="Page6" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -171,17 +155,8 @@ pwd
 Examples:
 pwd"
 
-[node name="Page7-8" type="HBoxContainer" parent="VBoxContainer/Control"]
+[node name="Page7" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Page7" type="RichTextLabel" parent="VBoxContainer/Control/Page7-8"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -199,7 +174,8 @@ Examples:
 grep \"error\" log.txt
 grep \"password\" file1.txt file2.txt"
 
-[node name="Page8" type="RichTextLabel" parent="VBoxContainer/Control/Page7-8"]
+[node name="Page8" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -216,17 +192,8 @@ Examples:
 sort names.txt
 sort data.log"
 
-[node name="Page9-10" type="HBoxContainer" parent="VBoxContainer/Control"]
+[node name="Page9" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Page9" type="RichTextLabel" parent="VBoxContainer/Control/Page9-10"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -243,7 +210,8 @@ Examples:
 uniq list.txt
 uniq data.txt unique_data.txt"
 
-[node name="Page10" type="RichTextLabel" parent="VBoxContainer/Control/Page9-10"]
+[node name="Page10" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -260,17 +228,8 @@ Examples:
 echo \"file1 file2\" | xargs rm
 cat command_list.txt | xargs sh -c"
 
-[node name="Page11-12" type="HBoxContainer" parent="VBoxContainer/Control"]
+[node name="Page11" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Page11" type="RichTextLabel" parent="VBoxContainer/Control/Page11-12"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -288,7 +247,8 @@ Examples:
 cow say \"Hello, world!\"
 cow say \"I'm a talking cow!\""
 
-[node name="Page12" type="RichTextLabel" parent="VBoxContainer/Control/Page11-12"]
+[node name="Page12" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
