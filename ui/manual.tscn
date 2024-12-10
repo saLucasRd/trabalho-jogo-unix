@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://4xnog2e3kigt"]
+[gd_scene load_steps=8 format=3 uid="uid://4xnog2e3kigt"]
 
 [ext_resource type="Script" path="res://ui/manual.gd" id="1_wdigb"]
 [ext_resource type="Texture2D" uid="uid://dr8d5ri118y0u" path="res://assets/image/left_arrow.png" id="2_yy5c3"]
 [ext_resource type="Texture2D" uid="uid://16gn2xm5aa5p" path="res://assets/image/right_arrow.png" id="3_j3jhl"]
 [ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="3_pdf6c"]
 [ext_resource type="Texture2D" uid="uid://c0fo7j5lycl25" path="res://assets/image/bookmark.png" id="4_5p56o"]
+[ext_resource type="AudioStream" uid="uid://bveth1s08subk" path="res://assets/sound/kenney-interface-sounds/select_005.ogg" id="6_qsrrc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtyvf"]
 bg_color = Color(0.470588, 0, 0, 1)
@@ -41,22 +42,19 @@ size_flags_horizontal = 8
 mouse_filter = 1
 texture_normal = ExtResource("4_5p56o")
 
-[node name="Content" type="Control" parent="VBoxContainer"]
+[node name="Content" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 1
-
-[node name="Page1-2" type="HBoxContainer" parent="VBoxContainer/Content"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Page1" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Nothing" type="RichTextLabel" parent="VBoxContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+
+[node name="Cover" type="RichTextLabel" parent="VBoxContainer/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -67,7 +65,17 @@ admin manual
 [color= green]
 by ludihan, donissac, fatkiwi"
 
-[node name="Page2" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Copyright" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "©2024 Quixada Labs All rights reserved"
+
+[node name="Summary" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -81,7 +89,53 @@ text = "Summary
 4. uniq - xargs
 5. cowsay - ???"
 
-[node name="Page3" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Tutorial0" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "How to operate the command line interface (aka the shell):
+
+type any command and hit enter to execute, like this:
+
+ls <enter>"
+
+[node name="Tutorial1" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "This will output some text you can then pipe to another program, like so:
+
+ls | cowsay<enter>"
+
+[node name="Tutorial2" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "To win this game you need to use the commands and "
+
+[node name="Tutorial3" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "How to operate the command line interface (aka the shell):
+
+type any command and hit enter to execute, like this:
+
+ls <enter>"
+
+[node name="Page2" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -100,7 +154,7 @@ Examples:
 ls /home/user
 ls ."
 
-[node name="Page4" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page3" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -119,7 +173,7 @@ Examples:
 cd /var/log
 cd ~"
 
-[node name="Page5" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page4" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -138,7 +192,7 @@ Examples:
 echo \"Hello, world!\"
 echo $HOME"
 
-[node name="Page6" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page5" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -155,7 +209,7 @@ pwd
 Examples:
 pwd"
 
-[node name="Page7" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page6" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -174,7 +228,7 @@ Examples:
 grep \"error\" log.txt
 grep \"password\" file1.txt file2.txt"
 
-[node name="Page8" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page7" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -192,7 +246,7 @@ Examples:
 sort names.txt
 sort data.log"
 
-[node name="Page9" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page8" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -210,7 +264,7 @@ Examples:
 uniq list.txt
 uniq data.txt unique_data.txt"
 
-[node name="Page10" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page9" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -228,7 +282,7 @@ Examples:
 echo \"file1 file2\" | xargs rm
 cat command_list.txt | xargs sh -c"
 
-[node name="Page11" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page10" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -247,7 +301,18 @@ Examples:
 cow say \"Hello, world!\"
 cow say \"I'm a talking cow!\""
 
-[node name="Page12" type="RichTextLabel" parent="VBoxContainer/Content/Page1-2"]
+[node name="Page11" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "ඞ
+
+"
+
+[node name="Page12" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -278,6 +343,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
 texture_normal = ExtResource("3_j3jhl")
+
+[node name="Click002" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-51, 168)
+stream = ExtResource("6_qsrrc")
 
 [connection signal="pressed" from="VBoxContainer/Index" to="." method="_on_index_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]

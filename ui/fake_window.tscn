@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1gkue4sjj6gr"]
+[gd_scene load_steps=5 format=3 uid="uid://b1gkue4sjj6gr"]
 
 [ext_resource type="Script" path="res://ui/fake_window.gd" id="1_si2tu"]
 [ext_resource type="Texture2D" uid="uid://7u1xyjp843q5" path="res://assets/image/close.png" id="2_ky88n"]
+[ext_resource type="AudioStream" uid="uid://b8obn3fgjmnu3" path="res://assets/sound/kenney-interface-sounds/click_004.ogg" id="3_kbauk"]
+[ext_resource type="AudioStream" uid="uid://dok88atoqxarl" path="res://assets/sound/kenney-interface-sounds/click_003.ogg" id="4_spwqt"]
 
 [node name="Window" type="Control"]
 layout_mode = 3
@@ -32,7 +34,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 0, 1, 1)
 
-[node name="Close" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="CloseBtn" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_ky88n")
 
@@ -41,6 +43,14 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kbauk")
+autoplay = true
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_spwqt")
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer/Bar" to="." method="_on_bar_gui_input"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="finished" from="Close" to="." method="_on_close_finished"]
