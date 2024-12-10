@@ -1,27 +1,46 @@
 extends Control
 
-#@export var levels: Array[Node] # Array contendo os nós dos níveis
-@onready var level_panels = $LevelPanel.get_children() # Pega os painéis filhos do LevelPanel
+var win_level1 := false
+var win_level2 := false
+var win_level3 := false
+var win_level4 := false
 
-# Função auxiliar para alternar a visibilidade de um nó
-func _toggle_visibility(node: Node) -> void:
-	node.visible = not node.visible
+@onready var level_1: TextureButton = $Panel2/VBoxContainer/Level1Container/Level1
+@onready var level_2: TextureButton = $Panel2/VBoxContainer/Level2Container/Level2
+@onready var level_3: TextureButton = $Panel2/VBoxContainer/Level3Container/Level3
+@onready var level_4: TextureButton = $Panel2/VBoxContainer/Level4Container/Level4
+@onready var texture_rect1: TextureRect = $Panel2/VBoxContainer/Level1Container/TextureRect
+@onready var texture_rect2: TextureRect = $Panel2/VBoxContainer/Level2Container/TextureRect
+@onready var texture_rect3: TextureRect = $Panel2/VBoxContainer/Level3Container/TextureRect
+@onready var texture_rect4: TextureRect = $Panel2/VBoxContainer/Level4Container/TextureRect
 
-# Oculta todos os níveis
-func hide_all_levels() -> void:
-	for level_panel in level_panels:
-		level_panel.visible = false
 
-# Função genérica para lidar com a seleção de níveis
-func on_level_pressed(level_index: int) -> void:
-	hide_all_levels() # Oculta todos os níveis antes de mostrar o selecionado
-	if level_index >= 0 and level_index < level_panels.size():
-		print("Nível selecionado:", level_index + 1)
-		_toggle_visibility(level_panels[level_index])
-
-# Vincula automaticamente os botões de nível às funções
 func _ready():
-	for i in range(level_panels.size()):
-		var button = level_panels[i].get_node("Button") 
-		#if button:
-			#button.connect("pressed", self, "on_level_pressed", [i])
+	level_1.
+	hide_levels()
+
+
+func _on_level_1_pressed() -> void:
+	hide_levels()
+	level_1.visible = true
+
+
+func _on_level_2_pressed() -> void:
+	hide_levels()
+	level_2.visible = true
+
+
+func _on_level_3_pressed() -> void:
+	hide_levels()
+	level_3.visible = true
+
+
+func _on_level_4_pressed() -> void:
+	hide_levels()
+	level_4.visible = true
+
+func hide_levels() -> void:
+	level_1.visible = false
+	level_2.visible = false
+	level_3.visible = false
+	level_4.visible = false
