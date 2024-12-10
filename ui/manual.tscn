@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://4xnog2e3kigt"]
 
-[ext_resource type="FontFile" uid="uid://c53hg5h4sggrf" path="res://assets/font/m3x6.ttf" id="1_2m75n"]
 [ext_resource type="Script" path="res://ui/manual.gd" id="1_wdigb"]
 [ext_resource type="Texture2D" uid="uid://dr8d5ri118y0u" path="res://assets/image/left_arrow.png" id="2_yy5c3"]
 [ext_resource type="Texture2D" uid="uid://16gn2xm5aa5p" path="res://assets/image/right_arrow.png" id="3_j3jhl"]
+[ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="3_pdf6c"]
 [ext_resource type="Texture2D" uid="uid://c0fo7j5lycl25" path="res://assets/image/bookmark.png" id="4_5p56o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtyvf"]
@@ -60,7 +60,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "[color=red][font_size=32]The pseudo-unix
 admin manual
@@ -71,7 +71,7 @@ by ludihan, donissac, fatkiwi"
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "Summary
 
@@ -95,7 +95,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "ls
 
@@ -113,7 +113,7 @@ ls ."
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "cd
 
@@ -141,7 +141,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "echo
 
@@ -159,7 +159,7 @@ echo $HOME"
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "pwd
 
@@ -185,7 +185,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "grep
 
@@ -203,7 +203,7 @@ grep \"password\" file1.txt file2.txt"
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "sort
 
@@ -230,7 +230,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "uniq
 
@@ -247,7 +247,7 @@ uniq data.txt unique_data.txt"
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "xargs
 
@@ -274,7 +274,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "cowsay
 
@@ -292,7 +292,7 @@ cow say \"I'm a talking cow!\""
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("1_2m75n")
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "ඞ
 
