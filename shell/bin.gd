@@ -20,7 +20,7 @@ static var bin_dict := {
 
 static func man_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	return CommandResult.new(
-"LEIA O LIVRO!\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
+"NÃO TEM \'MAN\', LEIA O LIVRO!\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
 
 static func ls_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	var output: Array[String]
@@ -28,6 +28,15 @@ static func ls_bin(args: Array, is_pipe: bool, previous_command: String) -> Comm
 	return CommandResult.new("\n".join(output) + "\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
 	
 static func grep_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
+	var cum := ""
+	var regex = RegEx.new()
+	regex.compile(args[0])
+	
+	if is_pipe:
+		var result = regex.search(previous_command)
+		if result:
+			print(result.get_string()) # Would print n-0123
+
 	# Simulação do comando LS
 	var output = "FILES: " + (args[0] if args.size() > 0 else ".") + "\n"
 	return CommandResult.new(output, CommandResult.TerminationStatus.EXIT_SUCCESS)
@@ -46,7 +55,6 @@ static func cut_bin(args: Array, is_pipe: bool, previous_command: String) -> Com
 
 static func cd_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	# Simulação do comando CD
-	
 	if args.size() > 0:
 		var dir = args[0]
 		var pwd := vfs.navigate_to(dir)
@@ -64,7 +72,16 @@ static func pwd_bin(args: Array, is_pipe: bool, previous_command: String) -> Com
 
 static func cat_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	if args.size() > 0:
-		return CommandResult.new(vfs.read_from(args[0]), CommandResult.TerminationStatus.EXIT_SUCCESS)
+		var found = true
+		var argsum: String = ""
+		for arg in args:
+			var a = vfs.read_from(arg)
+			if a == "":
+				found = false
+				argsum += "DSH: CAT: FILE NOT FOUND OR IS A DIRECTORY: " + arg + "\n"
+			else:
+				argsum += a
+		return CommandResult.new(argsum, CommandResult.TerminationStatus.EXIT_SUCCESS if found else CommandResult.TerminationStatus.EXIT_FAILURE)
 	else:
 		return CommandResult.new("DSH: CAT: NO FILE SPECIFIED\n", CommandResult.TerminationStatus.EXIT_FAILURE)
 
@@ -92,12 +109,13 @@ static func cowsay_bin(args: Array, is_pipe: bool, previous_command: String) -> 
 		from_echo = echo_bin(previous_command.erase(previous_command.length() - 1, 1).split(" "), false, previous_command)
 	else:
 		from_echo = echo_bin(args, is_pipe, "")
+	from_echo.output = from_echo.output.replace('\n', ' ')
 	
 	return CommandResult.new(" " + "_".repeat(len(from_echo.output) + 1) +
 	"\n< " + from_echo.output.erase(from_echo.output.length() - 1, 1) + " >" +
 	"\n " + "_".repeat(len(from_echo.output) + 1) + "\n" +
 	"    \\   ^__^\n" +
-	"	 \\  (oo)\\_________\n" +
+	"	 \\  (oo)\\______\n" +
 	"		(__)\\       )\\/\\\n" +
-	"			||----w |\n" +
-	"			||     ||\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
+	"			||----w|\n" +
+	"			||      ||\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
