@@ -2,7 +2,8 @@ extends Control
 
 @export_multiline var question: String = ""
 @export_multiline var expected_answer: String = ""
-@export var level_path: String = ""
+@export var level_name := ""
+var sh: Shell = Shell.new()
 
 signal win
 
@@ -11,16 +12,18 @@ signal win
 @onready var submit_button: Button = $VBoxContainer2/VBoxContainer/HBoxContainer/Button
 @onready var error: Label = $VBoxContainer2/VBoxContainer/Error
 
+
 func _ready():
+	sh.execute("CD " + level_name)
 	question_label.text = question
 
 func _on_button_pressed() -> void:
-	if answer_input.text.is_empty():
+	var input := answer_input.text.to_upper()
+	if input.is_empty():
 		error.text = "ERRO: Seu input está vazio."
-	var player_answer = answer_input.text.strip_edges().to_lower()
-	if player_answer == expected_answer.strip_edges().to_lower():
-		print("Correct! Moving to the next level.")
-		# Handle correct answer logic (e.g., load the next level)
+	var command_res := sh.execute(input)
+	if command_res.TerminationStatus.EXIT_FAILURE:
+		error.text = "ERRO: " + command_res.output
 	else:
-		print("Incorrect! Try again.")
-		# Handle incorrect answer logic
+		if command_res.output.strip_edges() == expected_answer.strip_edges():
+			win.emit()
