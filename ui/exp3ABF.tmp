@@ -28,8 +28,9 @@ script = ExtResource("1_xksi3")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.216
-anchor_bottom = 1.0
+anchor_bottom = 0.996
 offset_right = -0.120003
+offset_bottom = 0.960007
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_xdu4t")
 
@@ -159,22 +160,13 @@ visible = false
 layout_mode = 2
 texture = ExtResource("4_db4xq")
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="."]
-layout_mode = 2
-offset_left = 46.0
-offset_top = 107.0
-offset_right = 65.0
-offset_bottom = 123.0
-size_flags_horizontal = 3
-mouse_filter = 1
-border_color = Color(1, 0, 0, 0)
-
 [node name="LevelPanel" type="Panel" parent="."]
-layout_mode = 2
-anchor_left = 0.216
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.219
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.120003
+offset_left = -1.08
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1

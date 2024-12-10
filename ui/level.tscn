@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwq1mdvnentq5"]
+[gd_scene load_steps=8 format=3 uid="uid://dwq1mdvnentq5"]
 
+[ext_resource type="Script" path="res://ui/level.gd" id="1_kf05d"]
 [ext_resource type="Texture2D" uid="uid://bv8u762vxgqlq" path="res://assets/image/file.png" id="1_qdplc"]
 [ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="2_agay0"]
 
@@ -23,6 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_kf05d")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -67,3 +69,8 @@ theme_override_fonts/font = ExtResource("2_agay0")
 theme_override_styles/focus = SubResource("StyleBoxFlat_db4pk")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_yi1n3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1eorh")
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

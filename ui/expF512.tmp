@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpif54l7brgbh"]
+[gd_scene load_steps=12 format=3 uid="uid://cpif54l7brgbh"]
 
 [ext_resource type="Script" path="res://ui/explorer.gd" id="1_xksi3"]
 [ext_resource type="Texture2D" uid="uid://cbyxaoorcmv7o" path="res://assets/image/level1.png" id="2_roiiw"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://otdhoioxvjr3" path="res://assets/image/check.png" id="4_db4xq"]
 [ext_resource type="Texture2D" uid="uid://bfy6bh3unt6px" path="res://assets/image/level3.png" id="6_gcqvp"]
 [ext_resource type="Texture2D" uid="uid://b0k5b4yhl4ge2" path="res://assets/image/level4.png" id="7_71tsi"]
+[ext_resource type="Script" path="res://ui/level_manager.gd" id="8_4uwci"]
+[ext_resource type="Script" path="res://ui/level_panel.gd" id="9_xb4rr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdu4t"]
 bg_color = Color(0.103744, 0.103744, 0.103743, 1)
@@ -28,8 +30,9 @@ script = ExtResource("1_xksi3")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.216
-anchor_bottom = 1.0
+anchor_bottom = 0.996
 offset_right = -0.120003
+offset_bottom = 0.960007
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_xdu4t")
 
@@ -159,26 +162,25 @@ visible = false
 layout_mode = 2
 texture = ExtResource("4_db4xq")
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="."]
-layout_mode = 2
-offset_left = 46.0
-offset_top = 107.0
-offset_right = 65.0
-offset_bottom = 123.0
-size_flags_horizontal = 3
-mouse_filter = 1
-border_color = Color(1, 0, 0, 0)
+[node name="LevelManager" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_4uwci")
 
-[node name="LevelPanel" type="Panel" parent="."]
-layout_mode = 2
-anchor_left = 0.216
+[node name="LevelPanel" type="Panel" parent="LevelManager"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.219
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.120003
+offset_left = 60.24
+offset_right = 61.32
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_adilw")
+script = ExtResource("9_xb4rr")
 
 [connection signal="pressed" from="Panel2/VBoxContainer/Level1Container/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Panel2/VBoxContainer/Level2Container/Level2" to="." method="_on_level_2_pressed"]

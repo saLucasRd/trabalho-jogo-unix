@@ -38,6 +38,23 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_174vh")
 
+[node name="Resize" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 84.0
+offset_right = 121.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("3_gxpbl")
+text = "resize window"
+
+[node name="Move" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 70.0
+offset_right = 121.0
+offset_bottom = 93.0
+scale = Vector2(0.996806, 1.04)
+theme_override_fonts/font = ExtResource("3_gxpbl")
+text = "move window"
+
 [node name="TutorialLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 17.0
@@ -89,6 +106,7 @@ focus_mode = 0
 texture_normal = ExtResource("6_gitft")
 
 [node name="game" type="TextureButton" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("8_l5eyr")
