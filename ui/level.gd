@@ -1,7 +1,7 @@
 extends Control
 
-@export var question: String = ""
-@export var expected_answer: String = ""
+@export_multiline var question: String = ""
+@export_multiline var expected_answer: String = ""
 @export var level_path: String = ""
 
 signal win
@@ -13,7 +13,6 @@ signal win
 
 func _ready():
 	question_label.text = question
-
 
 func _on_button_pressed() -> void:
 	if answer_input.text.is_empty():

@@ -150,6 +150,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_adilw")
 [node name="Level1" parent="LevelPanel" instance=ExtResource("2_2gg6y")]
 visible = false
 layout_mode = 1
+question = "Liste os arquivos"
+expected_answer = "A.TXT
+B.TXT"
+level_path = "res://level/LEVEL1/"
 
 [node name="Level2" parent="LevelPanel" instance=ExtResource("2_2gg6y")]
 visible = false

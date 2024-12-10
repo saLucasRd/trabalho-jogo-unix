@@ -107,7 +107,10 @@ static func cut_bin(args: Array, is_pipe: bool, previous_command: String) -> Com
 
 static func cd_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	if args.size() > 0:
-		var dir = args[0]
+		
+		var dir = args[0].strip_edges()
+		print(dir)
+		dir[len(dir)- 1] = "" if dir[len(dir)- 1] == "/" else dir[len(dir)- 1] == dir[len(dir)- 1]
 		if vfs.navigate_to(dir):
 			return CommandResult.new("", CommandResult.TerminationStatus.EXIT_SUCCESS)
 		else:
