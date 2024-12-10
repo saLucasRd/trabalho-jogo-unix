@@ -22,7 +22,7 @@ func _on_button_pressed() -> void:
 	if input.is_empty():
 		error.text = "ERRO: Seu input está vazio."
 	var command_res := sh.execute(input)
-	if command_res.TerminationStatus.EXIT_FAILURE:
+	if command_res.termination_status == CommandResult.TerminationStatus.EXIT_FAILURE:
 		error.text = "ERRO: " + command_res.output
 	else:
 		if command_res.output.strip_edges() == expected_answer.strip_edges():
