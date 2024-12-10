@@ -50,18 +50,44 @@ static func ls_bin(args: Array, is_pipe: bool, previous_command: String) -> Comm
 	)
 
 static func grep_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
+	# Verificar se o padrão foi especificado
 	if args.size() == 0:
 		return CommandResult.new("DSH: GREP: NO PATTERN SPECIFIED\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+
 	var pattern = args[0]
 	var regex = RegEx.new()
-	var result: String = ""
+
+	# Verificar se o padrão regex é válido
 	if regex.compile(pattern) != OK:
 		return CommandResult.new("DSH: GREP: INVALID REGEX PATTERN\n", CommandResult.TerminationStatus.EXIT_FAILURE)
-	var source = previous_command if is_pipe else vfs.read_from(args[1] if args.size() > 1 else "")
+
+	# Priorizar a entrada do pipe
+	var source: String
+	if is_pipe:
+		source = previous_command.strip_edges()  # Garantir que o conteúdo do pipe está limpo
+		if source == "":
+			return CommandResult.new("DSH: GREP: NO DATA IN PIPE\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+	else:
+		# Usar arquivo caso não haja pipe
+		if args.size() < 2:
+			return CommandResult.new("DSH: GREP: NO INPUT PROVIDED (PIPE OR FILE EXPECTED)\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+		source = vfs.read_from(args[1])
+		if source == "":
+			return CommandResult.new("DSH: GREP: FILE NOT FOUND OR EMPTY: " + args[1] + "\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+
+	# Aplicar o grep linha por linha
+	var result: String = ""
 	for line in source.split("\n"):
 		if regex.search(line):
 			result += line + "\n"
+
+	# Retornar resultados ou mensagem de "nenhuma correspondência"
+	if result.strip_edges() == "":
+		return CommandResult.new("DSH: GREP: NO MATCHES FOUND\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+
 	return CommandResult.new(result, CommandResult.TerminationStatus.EXIT_SUCCESS)
+
+
 
 static func echo_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	return CommandResult.new(" ".join(args) + "\n", CommandResult.TerminationStatus.EXIT_SUCCESS)

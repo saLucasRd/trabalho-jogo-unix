@@ -140,6 +140,26 @@ func read_from(path: String) -> String:
 	return ""
 
 
+func list_dir(path: String) -> Array[String]:
+	var absolute := path.is_absolute_path()
+	var split_path := path.substr(1).split("/") if absolute else path.split("/")
+	var target_dir: File
+	
+	if absolute:
+		target_dir = _get_dir_from_root(split_path)
+	else:
+		target_dir = _get_dir_from_current(split_path)
+	
+	if target_dir and target_dir.is_dir:
+		var result: Array[String] = []
+		for link in target_dir.links:
+			result.append(link.file_name + ("/" if link.is_dir else ""))
+		return result
+	
+	print("Error: Directory not found or is not a directory: ", path)
+	return []
+
+
 func list_current_dir() -> Array[String]:
 	var result: Array[String] = []
 	for link in current_dir.links:
