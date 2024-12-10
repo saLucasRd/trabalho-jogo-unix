@@ -1,7 +1,8 @@
 extends Control
 
 @onready var bar: ColorRect = $VBoxContainer/HBoxContainer/Bar
-@onready var close: TextureButton = $VBoxContainer/HBoxContainer/Close
+@onready var close: AudioStreamPlayer = $Close
+@onready var close_btn: TextureButton = $VBoxContainer/HBoxContainer/CloseBtn
 
 enum Q {
 	Q1,
@@ -20,7 +21,7 @@ signal got_focus
 
 func _ready() -> void:
 	bar.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
-	close.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
+	close_btn.mouse_filter = MouseFilter.MOUSE_FILTER_PASS
 
 
 func _on_bar_gui_input(event: InputEvent) -> void:
@@ -40,11 +41,6 @@ func _on_bar_gui_input(event: InputEvent) -> void:
 		position += event.relative
 
 
-func _on_close_pressed() -> void:
-	got_focus.emit()
-	queue_free()
-
-
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		got_focus.emit()
@@ -55,3 +51,12 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 			
 			
+
+
+func _on_close_finished() -> void:
+	queue_free()
+
+
+func _on_close_btn_pressed() -> void:
+	got_focus.emit()
+	close.play()
