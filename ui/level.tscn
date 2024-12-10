@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/level.gd" id="1_kf05d"]
 [ext_resource type="Texture2D" uid="uid://bv8u762vxgqlq" path="res://assets/image/file.png" id="1_qdplc"]
+[ext_resource type="Script" path="res://ui/level.gd" id="1_wvi8j"]
 [ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="2_agay0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la0yo"]
@@ -24,7 +25,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+<<<<<<< HEAD
 script = ExtResource("1_kf05d")
+=======
+script = ExtResource("1_wvi8j")
+>>>>>>> 0b31fefe6ff83c107459fdddcc3a03f93828d97e
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

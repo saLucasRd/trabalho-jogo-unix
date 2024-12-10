@@ -36,7 +36,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Index" type="TextureButton" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Comandos_btn" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pdf6c")
+text = "Comandos"
+flat = true
+
+[node name="Tutorial_btn" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pdf6c")
+text = "Tutorial"
+flat = true
+
+[node name="Index" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 1
@@ -82,12 +98,13 @@ mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
 text = "Summary
-
-1. ls - cd
-2. echo - pwd
-3. grep - sort
-4. uniq - xargs
-5. cowsay - ???"
+1. Tutorial
+2. Comandos
+	2.1 - LS & CD
+	2.2 - ECHO & PWD
+	2.3. - GREP & SORT
+	2.4. - UNIQ & XARGS
+	2.5. - COWSAY & ???"
 
 [node name="Tutorial0" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -96,11 +113,15 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "How to operate the command line interface (aka the shell):
+text = "Tutorial: Como operar a linha de comando
 
-type any command and hit enter to execute, like this:
+abra o terminal e escreva algum comando, como por exemplo, o 'LS'
 
-ls <enter>"
+$ LS
+
+depois digite enter.
+
+"
 
 [node name="Tutorial1" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -109,9 +130,13 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "This will output some text you can then pipe to another program, like so:
+text = "Isso vai printar um texto que voce pode passar para outro programa, por exemplo, o cowsay
 
-ls | cowsay<enter>"
+digite isso na linha de comando:
+
+$ LS | COWSAY
+
+depois digite enter."
 
 [node name="Tutorial2" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -120,7 +145,11 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "To win this game you need to use the commands and "
+text = "Voce pode usar esse mecanismo de pipeline com quantos programas voce quiser:
+
+$ ECHO 1 2 3 | GREP 2 | COWSAY
+
+no exemplo acima é usado 3 comandos em um pipeline."
 
 [node name="Tutorial3" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -129,11 +158,31 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "How to operate the command line interface (aka the shell):
+text = "Pra ganhar uma fase é necessário que você use esses comandos juntamente com o mecanismo de pipeline para terminar os níveis
 
-type any command and hit enter to execute, like this:
+O resultado final do pipeline (ou do programa) vai ser comparado com o esperado e você ficará sabendo se ganhou ou não."
 
-ls <enter>"
+[node name="Tutorial4" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "Uma coisa que pode não ser bem clara na linha de comando é o que '..' (dois pontos) e '.' (um ponto) significam na sintaxe de alguns comandos.
+
+De uma maneira simples, os dois pontos referenciam o diretório parente ao que você está e um ponto significa o diretório atual."
+
+[node name="Tutorial5" type="RichTextLabel" parent="VBoxContainer/Content"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_pdf6c")
+bbcode_enabled = true
+text = "Caso você fique confuso em que diretório você está atualmente é possível executar o comando 'PWD'.
+
+PWD significa 'print working directory', bem alto descritivo."
 
 [node name="Page2" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -142,17 +191,20 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "ls
+text = "LS
 
-Description:
-Lists the contents of directories.
+Descrição:
+Lista o conteúdo de diretórios
 
-Syntax:
-ls [directory]
+Sintaxe:
+LS [diretório]...
 
-Examples:
-ls /home/user
-ls ."
+Exemplos:
+LS /
+LS
+LS CONFIG
+LS CONFIG/ABC
+"
 
 [node name="Page3" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -161,17 +213,18 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "cd
+text = "CD
 
 Description:
 Changes the current working directory.
 
 Syntax:
-cd [directory]
+CD [diretório]
 
 Examples:
-cd /var/log
-cd ~"
+CD CONFIG
+CD CONFIG/ABC
+CD .."
 
 [node name="Page4" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -180,17 +233,18 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "echo
+text = "ECHO
 
-Description:
-Displays a line of text to the standard output.
+Descrição:
+Printa todos os argumentos passados para o comando em uma única linha
 
-Syntax:
-echo [string...]
+Sintaxe:
+ECHO [string]...
 
-Examples:
-echo \"Hello, world!\"
-echo $HOME"
+Exemplos:
+ECHO HELLO WORLD
+ECHO OI
+ECHO"
 
 [node name="Page5" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -199,15 +253,16 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "pwd
+text = "PWD
 
-Description: Displays the full path of the current working directory.
+Descrição: 
+Printa o caminho do diretório atual
 
-Syntax:
-pwd
+Sintaxe:
+PWD
 
-Examples:
-pwd"
+Exemplos:
+PWD"
 
 [node name="Page6" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -216,17 +271,18 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "grep
+text = "GREP
+(ACEITA PIPELINE)
 
-Description:
-Searches for patterns in files or standard input.
+Descrição:
+Procura por padrões de expressões regulares em arquivos ou em um pipe
 
-Syntax:
-grep pattern [file...]
+Sintaxe:
+GREP <padrão> [arquivo]
 
-Examples:
-grep \"error\" log.txt
-grep \"password\" file1.txt file2.txt"
+Exemplos:
+GREP \\.net^ websites.log
+GREP senha= arquivo.txt "
 
 [node name="Page7" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -235,16 +291,17 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "sort
+text = "SORT
+(USA SOMENTE PIPELINE)
 
-Description: Sorts lines of text.
+Descrição: 
+Orderna linhas de texto
 
-Syntax:
-sort [file...]
+Sintaxe:
+SORT
 
 Examples:
-sort names.txt
-sort data.log"
+SORT"
 
 [node name="Page8" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -253,16 +310,17 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "uniq
+text = "UNIQ
+(USA SOMENTE PIPELINE)
 
-Description: Removes consecutive duplicate lines.
+Descrição: 
+Remove linhas consecutivas repetidas de texto
 
-Syntax:
-uniq [input] [output]
+Sintaxe:
+UNIQ
 
-Examples:
-uniq list.txt
-uniq data.txt unique_data.txt"
+Exemplos:
+UNIQ"
 
 [node name="Page9" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -271,16 +329,18 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "xargs
+text = "XARGS
+(PIPELINE É NECESSÁRIO)
 
-Description: Builds and executes commands from standard input.
+Descrição: 
+Separa linhas de um comando anterior e passa essas linhas para outro comando
 
-Syntax:
-xargs [command]
+Sintaxe:
+XARGS <comando>
 
-Examples:
-echo \"file1 file2\" | xargs rm
-cat command_list.txt | xargs sh -c"
+Exemplos:
+LS | XARGS LS
+CAT ARQUIVO.TXT | COWSAY"
 
 [node name="Page10" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
@@ -289,41 +349,19 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_pdf6c")
 bbcode_enabled = true
-text = "cowsay
+text = "COWSAY
 
-Description:
-Displays a message as a cow in ASCII art.
+Descrição:
+Manda os argumentos passados para uma vaca falante. 
 
-Syntax:
-cowsay MESSAGE
+Sintaxe:
+COWSAY MENSAGEM...
 
-Examples:
-cow say \"Hello, world!\"
-cow say \"I'm a talking cow!\""
+Exemplos:
+COWSAY HELLO WORLD
+COWSAY BOM DIA"
 
 [node name="Page11" type="RichTextLabel" parent="VBoxContainer/Content"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("3_pdf6c")
-bbcode_enabled = true
-text = "ඞ
-
-"
-
-[node name="Page12" type="RichTextLabel" parent="VBoxContainer/Content"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("3_pdf6c")
-bbcode_enabled = true
-text = "ඞ
-
-"
-
-[node name="Page13" type="RichTextLabel" parent="VBoxContainer/Content"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -359,6 +397,8 @@ texture_normal = ExtResource("3_j3jhl")
 position = Vector2(-51, 168)
 stream = ExtResource("6_qsrrc")
 
-[connection signal="pressed" from="VBoxContainer/Index" to="." method="_on_index_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Comandos_btn" to="." method="_on_comandos_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Tutorial_btn" to="." method="_on_tutorial_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Index" to="." method="_on_index_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/NextPage" to="." method="_on_next_page_pressed"]

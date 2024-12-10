@@ -132,13 +132,30 @@ static func cat_bin(args: Array, is_pipe: bool, previous_command: String) -> Com
 	return CommandResult.new(result, CommandResult.TerminationStatus.EXIT_SUCCESS)
 
 static func sort_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
-	var source = previous_command if is_pipe else ""
+	# Verifica se a execução está sendo feita com um pipe
+	if not is_pipe:
+		return CommandResult.new("DSH: SORT: NO PIPE PROVIDED\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+	# Verifica se o conteúdo do pipe está vazio
+	if previous_command.strip_edges() == "":
+		return CommandResult.new("DSH: SORT: NO DATA IN PIPE\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+	
+	# Processa a string para ordenação
+	var source = previous_command
 	var sorted_lines = source.split("\n")
 	sorted_lines.sort()
 	return CommandResult.new("\n".join(sorted_lines) + "\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
 
+
 static func uniq_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
-	var source = previous_command if is_pipe else ""
+	# Verifica se a execução está sendo feita com um pipe
+	if not is_pipe:
+		return CommandResult.new("DSH: UNIQ: NO PIPE PROVIDED\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+	# Verifica se o conteúdo do pipe está vazio
+	if previous_command.strip_edges() == "":
+		return CommandResult.new("DSH: UNIQ: NO DATA IN PIPE\n", CommandResult.TerminationStatus.EXIT_FAILURE)
+	
+	# Processa a string para remoção de linhas duplicadas
+	var source = previous_command
 	var lines = source.split("\n")
 	var result: Array[String] = []
 	var previous = ""
@@ -146,7 +163,9 @@ static func uniq_bin(args: Array, is_pipe: bool, previous_command: String) -> Co
 		if line != previous:
 			result.append(line)
 			previous = line
+
 	return CommandResult.new("\n".join(result) + "\n", CommandResult.TerminationStatus.EXIT_SUCCESS)
+
 
 static func xargs_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	if args.size() == 0:
@@ -174,6 +193,7 @@ static func xargs_bin(args: Array, is_pipe: bool, previous_command: String) -> C
 
 static func cowsay_bin(args: Array, is_pipe: bool, previous_command: String) -> CommandResult:
 	var message = previous_command if is_pipe else " ".join(args)
+	message = message.replace('\n', ' ')
 	if message.strip_edges() == "":
 		return CommandResult.new("DSH: COWSAY: NO MESSAGE PROVIDED\n", CommandResult.TerminationStatus.EXIT_FAILURE)
 	var bubble = " " + "_".repeat(message.length() + 2) + "\n"

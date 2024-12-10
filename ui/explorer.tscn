@@ -5,8 +5,8 @@
 [ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="3_lwm77"]
 [ext_resource type="Texture2D" uid="uid://b4ttkj7bq5wud" path="res://assets/image/level2.png" id="3_qyexw"]
 [ext_resource type="Texture2D" uid="uid://otdhoioxvjr3" path="res://assets/image/check.png" id="4_db4xq"]
-[ext_resource type="Texture2D" uid="uid://bfy6bh3unt6px" path="res://assets/image/level3.png" id="6_gcqvp"]
-[ext_resource type="Texture2D" uid="uid://b0k5b4yhl4ge2" path="res://assets/image/level4.png" id="7_71tsi"]
+[ext_resource type="Texture2D" uid="uid://h87d8ug2i57b" path="res://assets/image/level3.png" id="6_gcqvp"]
+[ext_resource type="Texture2D" uid="uid://bdpar2v1j3v5x" path="res://assets/image/level4.png" id="7_71tsi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdu4t"]
 bg_color = Color(0.103744, 0.103744, 0.103743, 1)

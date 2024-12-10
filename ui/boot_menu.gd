@@ -1,7 +1,6 @@
 extends VBoxContainer
 
 @onready var start_label: Label = $StartLabel
-@onready var options_label: Label = $OptionsLabel
 @onready var exit_label: Label = $ExitLabel
 @onready var SELECTED := LabelSettings.new()
 @onready var NOT_SELECTED := LabelSettings.new()
