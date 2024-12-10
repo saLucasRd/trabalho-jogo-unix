@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwq1mdvnentq5"]
+[gd_scene load_steps=7 format=3 uid="uid://bdit8pg54c817"]
 
-[ext_resource type="Texture2D" uid="uid://bv8u762vxgqlq" path="res://assets/image/file.png" id="1_qdplc"]
-[ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="2_agay0"]
+[ext_resource type="Texture2D" uid="uid://bv8u762vxgqlq" path="res://assets/image/file.png" id="1_nmn1o"]
+[ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="2_r2wae"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la0yo"]
 bg_color = Color(0.169245, 0.169245, 0.169245, 1)
@@ -49,21 +49,41 @@ columns = 4
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
 layout_mode = 2
-texture = ExtResource("1_qdplc")
+texture = ExtResource("1_nmn1o")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_nmn1o")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_nmn1o")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_nmn1o")
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_nmn1o")
+
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer2/GridContainer2"]
+layout_mode = 2
+texture = ExtResource("1_nmn1o")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
-theme_override_fonts/normal_font = ExtResource("2_agay0")
+theme_override_fonts/normal_font = ExtResource("2_r2wae")
 bbcode_enabled = true
-text = "Nivel 1"
+text = "Nivel 2"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer2"]
 layout_mode = 2
 mouse_filter = 1
-theme_override_fonts/font = ExtResource("2_agay0")
+theme_override_fonts/font = ExtResource("2_r2wae")
 theme_override_styles/focus = SubResource("StyleBoxFlat_db4pk")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_yi1n3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1eorh")

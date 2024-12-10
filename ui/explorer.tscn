@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpif54l7brgbh"]
+[gd_scene load_steps=11 format=3 uid="uid://cpif54l7brgbh"]
 
 [ext_resource type="Script" path="res://ui/explorer.gd" id="1_xksi3"]
 [ext_resource type="PackedScene" uid="uid://dwq1mdvnentq5" path="res://ui/level.tscn" id="2_2gg6y"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://cwcj6fpreyp80" path="res://assets/font/m5x7.ttf" id="3_lwm77"]
 [ext_resource type="Texture2D" uid="uid://b4ttkj7bq5wud" path="res://assets/image/level2.png" id="3_qyexw"]
 [ext_resource type="Texture2D" uid="uid://otdhoioxvjr3" path="res://assets/image/check.png" id="4_db4xq"]
+[ext_resource type="PackedScene" uid="uid://bdit8pg54c817" path="res://ui/level2.tscn" id="7_e7klv"]
+[ext_resource type="PackedScene" uid="uid://l8j1po55tjdc" path="res://ui/level3.tscn" id="8_p104l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdu4t"]
 bg_color = Color(0.103744, 0.103744, 0.103743, 1)
@@ -21,7 +23,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xksi3")
-scene_to_instance = ExtResource("2_2gg6y")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
@@ -156,6 +157,18 @@ offset_left = -1.08
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_adilw")
+
+[node name="Level" parent="Panel" instance=ExtResource("7_e7klv")]
+visible = false
+layout_mode = 1
+
+[node name="Level2" parent="Panel" instance=ExtResource("2_2gg6y")]
+visible = false
+layout_mode = 1
+
+[node name="Level3" parent="Panel" instance=ExtResource("8_p104l")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Panel2/VBoxContainer/Level1Container/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Panel2/VBoxContainer/Level2Container/Level2" to="." method="_on_level_2_pressed"]
